@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>getImgs</title>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	
+<script>
+	var _arr = [];
+	function getData () {
+		$.ajax({
+			url:"http://localhost:8083/getData",
+			type: 'GET',
+			success:function(res){
+				console.log(res);
+				if (res.length > 0) {
+					_arr = res;
+					getHtml(0);
+				}
+
+			}
+		})
+	}
+	function getHtml(_index) {
+		var self = this;
+		$.ajax({
+			url:"http://localhost:8083/getHtml?name="+_arr[_index],
+			type: 'GET',
+			success:function(res){
+				console.log(res);
+				var myWindow=window.open('','','width=800,height=800')
+				myWindow.document.write(res);
+				_index ++
+				if (_index < _arr.length) {
+					setTimeout(function () {
+						getHtml(_index);
+					}, 1000);
+				} else {
+					console.log('over');
+				}
+			}
+		});
+	}
+	getData();
+	// getHtml(0);
+</script>
+</body>
+</html>

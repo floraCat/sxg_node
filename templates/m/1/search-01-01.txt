@@ -1,0 +1,55 @@
+<html>
+<form class="p-search-010" name="form_search" method="get" action="#">
+    <input type="text" class="keyword" name="keyword" placeholder="..." />
+    <input type="submit" class="submit" value=">" />
+</form>
+</html>
+
+<vue>
+<form class="p-search-010" name="form_search" method="get" action="#">
+    <input type="text" class="keyword" name="keyword" placeholder="..." />
+    <input type="submit" class="submit" value=">" />
+</form>
+</vue>
+
+<css>
+.p-search-010{ position:relative; width:200px; height:30px;}
+.p-search-010 .keyword{ width:163px; height:24px; line-height:26px; padding:2px 3px; border-right:none;}
+.p-search-010 .submit{ position:absolute; top:0; right:0; width:30px; height:30px; background: #fff; cursor:pointer;}
+</css>
+
+<less>
+.p-search-010{ position:relative; width:200px; height:30px;}
+.p-search-010 .keyword{ width:163px; height:24px; line-height:26px; padding:2px 3px; border-right:none;}
+.p-search-010 .submit{ position:absolute; top:0; right:0; width:30px; height:30px; background: #fff; cursor:pointer;}
+</less>
+
+<scss>
+.p-search-010{ position:relative; width:200px; height:30px;}
+.p-search-010 .keyword{ width:163px; height:24px; line-height:26px; padding:2px 3px; border-right:none;}
+.p-search-010 .submit{ position:absolute; top:0; right:0; width:30px; height:30px; background: #fff; cursor:pointer;}
+</scss>
+
+<js></js>
+
+<jsData></jsData>
+
+<jsMethods></jsMethods>
+
+<ES6Methods></ES6Methods>
+
+<!--
+<dataTool>[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]</dataTool>
+<dataMod>[
+    {"cls":[".keyword"],"prop":"width","val":"163px"},
+    {"cls":[".submit"],"prop":"width","val":"30px"},
+    {"cls":[".keyword",".submit"],"prop":"height","val":"40px"}
+]</dataMod>
+-->
+
+
+
