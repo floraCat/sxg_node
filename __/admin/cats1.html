@@ -1,0 +1,62 @@
+<html lang="zh-cn"><head>
+<meta charset="utf-8">
+<title>效果展示</title>
+<link rel="stylesheet" href="http://localhost:8000/style/reset.css" />
+<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+
+<style>
+.p-cats-060{ overflow:hidden; width:240px;}
+.p-cats-060 li{ float:left; width:80px; padding:5px 0; text-align:center;}
+.p-cats-060 .img img{ width:60px; height:60px;}
+.p-cats-060 h4{ overflow: hidden; height: 21px; font-size:12px; font-weight:normal;}
+</style>
+</head>
+<body>
+<div class="form-cats1">
+	<ul>
+		<li>
+			<label>ttl：</label>
+			<input type="text" v-model="ttl" />
+		</li>
+		<li>
+			<label>type：</label>
+			<input type="text" v-model="type" />
+		</li>
+		<li>
+			<label>attr：</label>
+			<input type="text" v-model="attr" />
+		</li>
+	</ul>
+	<a href="javascript:;" @click="add">提交</a>
+</div>
+</body>
+<script>
+new Vue({
+	el: '.form-cats1',
+	data: function () {
+		return {
+			ttl: '',
+			type: 'm',
+			attr: 1
+		}
+	},
+	methods: {
+		add: function () {
+			var url = 'http://localhost:8000/add?db=cats1&ttl='+this.ttl+'&type='+this.type+'&attr='+this.attr;
+			var submitdata = {
+				db: 'cats1',
+				ttl: this.ttl,
+				type: this.type,
+				attr: this.attr
+			}
+			axios.get(url).then(function(res){
+			    console.log(res);
+			}).catch(function(err){
+			    console.log(err);
+			})
+		}
+	}
+})
+</script>
+</html>
