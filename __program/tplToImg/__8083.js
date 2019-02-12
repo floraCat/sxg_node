@@ -8,6 +8,12 @@ app.set('port',8083);
 
 
 app.get("/getData",function (req,res) {
+	//设置允许跨域的域名，*代表允许任意域名跨域
+    res.header("Access-Control-Allow-Origin","*");
+    //允许的header类型
+    res.header("Access-Control-Allow-Headers","content-type");
+    //跨域允许的请求方式 
+    res.header("Access-Control-Allow-Methods","DELETE,PUT,POST,GET,OPTIONS");
 
 	var path = '../../templates/m/1/';
 	var _rs = [];
@@ -18,7 +24,9 @@ app.get("/getData",function (req,res) {
             var curPath = path + "/" + file;
             if(fs.statSync(curPath).isDirectory()) {
             } else {
-                _rs.push(file.split('.')[0])
+            	if (file.split('.')[1] === 'txt') {
+            		_rs.push(file.split('.')[0])
+            	}
             }
         });
     }
@@ -28,26 +36,29 @@ app.get("/getData",function (req,res) {
 
 app.get("/getHtml",function (req,res) {
 
+	//设置允许跨域的域名，*代表允许任意域名跨域
+    res.header("Access-Control-Allow-Origin","*");
+
+    res.header("Access-Control-Allow-Credentials",true);
+    //允许的header类型
+    res.header("Access-Control-Allow-Headers","content-type");
+    //跨域允许的请求方式 
+    res.header("Access-Control-Allow-Methods","DELETE,PUT,POST,GET,OPTIONS");
+
 	var _name = req.query.name;
-	var _code = fs.readFileSync('../../templates/m/1/'+_name+'.txt','utf8');
+	var path = '../../templates/m/1/';
+	var _code = fs.readFileSync(path+_name+'.txt','utf8');
 
 var el = _name.split('-')[0];
 
 var reg_css = /<css>([\s\S]*?)<\/css>/;
 var css = _code.match(reg_css)[1].trim();
 
-var reg_vue = /<vue>([\s\S]*?)<\/vue>/;
-var vue = _code.match(reg_vue)[1].trim();
+var reg_html = /<html>([\s\S]*?)<\/html>/;
+var html = _code.match(reg_html)[1].trim();
 
-var reg_jsData = /<jsData>([\s\S]*?)<\/jsData>/;
-var jsData = _code.match(reg_jsData)[1].trim();
-
-var reg_jsMothods = /<jsMothods>([\s\S]*?)<\/jsMothods>/;
-if (_code.match(reg_jsMothods)) {
-	var jsMothods = _code.match(reg_jsMothods)[1].trim();
-} else {
-	var jsMothods = '';
-}
+var reg_js = /<js>([\s\S]*?)<\/js>/;
+var js = _code.match(reg_js)[1].trim();
 
 
 
@@ -57,7 +68,6 @@ var _html = `
 <meta charset="utf-8">
 <title>效果展示</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
 <link rel="stylesheet" href="http://localhost:8000/style/reset.css" />
 <style>
 ${css}
@@ -65,19 +75,11 @@ ${css}
 </head>
 
 <body>
-${vue}
+${html}
 </body>
 
 <script>
-new Vue({
-	el: '.sxg-${el}',
-	data: function () {
-		return ${jsData}
-	},
-	methods: {
-		${jsMothods}
-	}
-})
+${js}
 </script>
 
 </html>
@@ -88,6 +90,13 @@ new Vue({
 	var _name = 'sxg-' + el;
 	var _script = `<script type="text/javascript" src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 <script>
+setTimeout(function () {
+	var imgs = document.getElementsByTagName('img');
+    var len_imgs = imgs.length;
+    console.log('11111---'+len_imgs);
+    for (var x = 0; x < len_imgs; x ++) {
+    	imgs[x].setAttribute("crossOrigin", 'anonymous');
+    }
 	var canvas2 = document.createElement("canvas");
 	var _canvas = document.querySelector('.${_name}');
 	var w = parseInt(window.getComputedStyle(_canvas).width);
@@ -104,16 +113,19 @@ new Vue({
 		var _btn = document.createElement("a");
 		_btn.innerHTML='下载';
 	    _btn.setAttribute('id', 'btn');
-	    _btn.setAttribute('href', canvas.toDataURL());
+	    // _btn.setAttribute('href', canvas.toDataURL());
 	    _btn.setAttribute('download', '${_name}');
 	    document.body.appendChild(_btn);
 	    setTimeout(function () {
+	    	document.getElementById('btn').setAttribute('href', canvas.toDataURL());
 	    	document.getElementById('btn').click();
 	    	setTimeout(function () {
 	    		// window.close();
 	    	}, 500);
 	    }, 1000);
 	});
+}, 2000);
+	
 	</script>`;
 
 	var _rs = _html+_script;

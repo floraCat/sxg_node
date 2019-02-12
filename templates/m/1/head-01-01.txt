@@ -3,8 +3,7 @@
 	<a href="#" class="lt">
 		<img class="icon" src="http://localhost:8000/imgs/11.jpg" />
 	</a>
-	<h2 v-text="pageTitle">
-	</h2>
+	<h2 v-text="pageTitle">1111</h2>
 	<a href="#" class="rt">
 		<img class="icon" src="http://localhost:8000/imgs/11.jpg" />
 	</a>

@@ -5,50 +5,62 @@
 	- 模板尽量不用v-show
 	- 最后的html导出新html文件
 	- 没有v-for的情况
+	- 多个v-for的情况
+	- data字符串值未考虑
 	- ...
 */
 
 
 function VueToHtml (code) {
 
-	// 匹配脚本中的data值
+	// 匹配脚本中的djsData字符串
 	var reg_script = /data[\s\S]*?\(\)[\s\S]*?{[\s\S]*?return[\s\S]*?{([\s\S]*)}[\s\S]*?},[\s\S]*?methods:/;
 	var match_script = code.match(reg_script)
 	if (match_script) {
 		match_script = match_script[1]
 	}
 
-	// 替换所有数组
-	var $arr = '$arr'
-	var _reg_arr8 = /\[([\s\S]*?)\]/
-	if (match_script.match(_reg_arr8)) {
-		var match$arr = match_script.match(_reg_arr8)[1]
-		match_script = match_script.replace(_reg_arr8, $arr)
-	}
-		
-	// 再替换所有对象
-	var $obj = '$obj'
-	var _reg_obj8 = /{([\s\S]*?)}/
-	if (match_script.match(_reg_obj8)) {
-		var match$obj = match_script.match(_reg_obj8)[1]
-		match_script = match_script.replace(_reg_obj8, $obj)
-	}
-		
-	// 加双引号方便转json
-	match_script = match_script.replace(/:/g, "\":\"");
-	match_script = match_script.replace(/,/g, "\",\"");
-	match_script = match_script.replace(/[\s]*/g, "");
-	var $$topObj = JSON.parse('{"' + match_script.trim()+ '"}')
+	// jsData字符串转对象
+	var getjsData = function () {
 
-	$arr = match$arr && strToArr2(match$arr);
-	$obj = match$obj && strToObj2(match$obj);
-
-	for (var key in $$topObj) {
-		if ($$topObj[key].trim() === '$arr') {
-			$$topObj[key] = $arr;
+		// 替换所有数组为'$arr'方便后续判断是数组
+		var $arr = '$arr'
+		var _reg_arr8 = /\[([\s\S]*?)\]/
+		if (match_script.match(_reg_arr8)) {
+			var match$arr = match_script.match(_reg_arr8)[1]
+			match_script = match_script.replace(_reg_arr8, $arr)
 		}
+			
+		// 再替换所有对象为'$obj'方便后续判断是对象
+		var $obj = '$obj'
+		var _reg_obj8 = /{([\s\S]*?)}/
+		if (match_script.match(_reg_obj8)) {
+			var match$obj = match_script.match(_reg_obj8)[1]
+			match_script = match_script.replace(_reg_obj8, $obj)
+		}
+			
+		// 加双引号方便转json
+		match_script = match_script.replace(/:/g, "\":\"");
+		match_script = match_script.replace(/,/g, "\",\"");
+		match_script = match_script.replace(/[\s]*/g, "");
+		var $$topObj = JSON.parse('{"' + match_script.trim()+ '"}')
+
+		$arr = match$arr && strToArr(match$arr);
+		$obj = match$obj && strToObj(match$obj);
+
+		for (var key in $$topObj) {
+			if ($$topObj[key]) {
+				if ($$topObj[key].trim() === '$arr') {
+					$$topObj[key] = $arr;
+				} else if ($$topObj[key].trim() === '$obj') {
+					$$topObj[key] = $obj;
+				}
+			}
+		}
+		return $$topObj
 	}
-	// console.log($arr);return
+	var $$topObj = getjsData();
+
 
 
 	// 匹配v-for整个标签(此处为整个li元素)
@@ -225,7 +237,7 @@ function VueToHtml (code) {
 /*-------------------------------------------------------------*/	
 
 // 类数组字符串 转 数组
-function strToArr2 (_str) {
+function strToArr (_str) {
 	if (_str.trim()[_str.trim().length-1] != ',') {
 		_str = _str.trim() + ','
 	}
@@ -246,7 +258,7 @@ function strToArr2 (_str) {
 	return _arr
 }
 
-function strToObj2 (_str) {
+function strToObj (_str) {
 	return _str
 }
 
