@@ -55,7 +55,7 @@ function getTpl (_modeArr,_txt,_el,_oldFile) {
 		_code[_modeArr[j]] = _data[_modeArr[j]]
 	}
 	if (_modeArr.indexOf('jsData') >= 0) {
-		_view = _view.replace(/{{el}}/,'.'+_el.split('-')[0]);
+		_view = _view.replace(/{{el}}/,_el.split('-')[0]);
 	}
 	var _file = Date.parse(new Date());
 	fs.writeFile('./public/html/'+_file+'.html',_view,function(err){
