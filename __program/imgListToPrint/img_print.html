@@ -1,0 +1,79 @@
+<html lang="zh-cn"><head>
+<meta charset="utf-8">
+<title>效果展示</title>
+<link rel="stylesheet" href="http://localhost:8000/style/reset.css" />
+<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+<style>
+body {
+	-webkit-filter: grayscale(80%);
+    -moz-filter: grayscale(80%);
+    -ms-filter: grayscale(80%);
+    -o-filter: grayscale(80%);
+    filter: grayscale(80%);
+    filter: gray;
+    opacity: .8;
+}
+.imgs {
+	overflow: hidden;
+	padding: 10px;
+}
+.imgs li {
+	/*width: 252px;*/
+	width: 181px;
+	height: 361px;
+	border: #999 1px solid;
+	margin: 0 10px 10px 0;
+	float: left;
+	overflow: hidden;
+}
+.imgs span {
+	width: 181px;
+	height: 361px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+.imgs img {
+	display: inline;
+	width: auto;
+	max-width: 181px;
+}
+</style>
+</head>
+<body>
+<div class="imgs">
+	<ul>
+		<li v-for="img in imgs">
+			<span><img :src="path+img"></span>
+		</li>
+	</ul>
+</div>
+</body>
+<script>
+new Vue({
+	el: '.imgs',
+	data: function () {
+		return {
+			path: 'http://localhost/__x/模板收集/移动截图2-10/',
+			imgs: []
+		}
+	},
+	mounted: function () {
+		this.list();
+	},
+	methods: {
+		list: function () {
+			var self = this;
+			var url = 'http://localhost:8000/print';
+			axios.get(url).then(function(res){
+			    console.log(res.data.length);
+			    self.imgs = res.data;
+			}).catch(function(err){
+			    console.log(err);
+			})
+		}
+	}
+})
+</script>
+</html>

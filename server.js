@@ -5,7 +5,7 @@ var list = require('./controlers/list.js');
 var {tplHandle,fileHandle} = require('./controlers/tpl.js');
 var copy = require('./controlers/copy.js');
 var admin = require('./controlers/admin.js');
-var listImgs = require('./__/imgListToPrint/handle.js');
+var listImgs = require('./__program/imgListToPrint/handle.js');
 // var dbHandle = require('./dbHandle.js');
 
 // json解析中间件 for post
@@ -90,7 +90,8 @@ app.get('/print',function (req,res) {
     //跨域允许的请求方式 
     res.header("Access-Control-Allow-Methods","DELETE,PUT,POST,GET,OPTIONS");
     // console.log(req.query);
-    listImgs('/Users/fanghua/我的文件/www/移动端-new',req,res);
+    // listImgs('/Users/fanghua/我的文件/www/移动端-new',req,res);
+    listImgs('D:/_phpStudy/WWW/__x/模板收集/移动截图2-10',req,res);
 });
 
 

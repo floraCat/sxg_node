@@ -4,6 +4,7 @@
 	- index未考虑
 	- 模板尽量不用v-show
 	- 最后的html导出新html文件
+	- 没有v-for的情况
 	- ...
 */
 
@@ -211,20 +212,6 @@ function VueToHtml (code) {
 	} else {
 		var newHtml = vue;
 	}
-	
-
-// var reg_1 = /}/g;
-// let _str5 = JSON.stringify($$topObj);
-// _str5 = _str5.replace(reg_1,"\n}");
-
-// var reg_1 = /{/g
-// _str5 = _str5.replace(reg_1,"{\n");
-
-// var reg_1 = /,/g
-// _str5 = _str5.replace(reg_1,",\n");
-
-// console.log(_str5);
-
 
 	return {
 		html:newHtml,

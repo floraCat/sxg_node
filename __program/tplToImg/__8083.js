@@ -9,7 +9,7 @@ app.set('port',8083);
 
 app.get("/getData",function (req,res) {
 
-	var path = './templates/html/';
+	var path = '../../templates/m/1/';
 	var _rs = [];
     var files = [];
     if( fs.existsSync(path) ) {
@@ -29,8 +29,63 @@ app.get("/getData",function (req,res) {
 app.get("/getHtml",function (req,res) {
 
 	var _name = req.query.name;
-	var _html = fs.readFileSync('./templates/html/'+_name+'.html','utf8');
+	var _code = fs.readFileSync('../../templates/m/1/'+_name+'.txt','utf8');
 
+var el = _name.split('-')[0];
+
+var reg_css = /<css>([\s\S]*?)<\/css>/;
+var css = _code.match(reg_css)[1].trim();
+
+var reg_vue = /<vue>([\s\S]*?)<\/vue>/;
+var vue = _code.match(reg_vue)[1].trim();
+
+var reg_jsData = /<jsData>([\s\S]*?)<\/jsData>/;
+var jsData = _code.match(reg_jsData)[1].trim();
+
+var reg_jsMothods = /<jsMothods>([\s\S]*?)<\/jsMothods>/;
+if (_code.match(reg_jsMothods)) {
+	var jsMothods = _code.match(reg_jsMothods)[1].trim();
+} else {
+	var jsMothods = '';
+}
+
+
+
+var _html = `
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>效果展示</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+<link rel="stylesheet" href="http://localhost:8000/style/reset.css" />
+<style>
+${css}
+</style>
+</head>
+
+<body>
+${vue}
+</body>
+
+<script>
+new Vue({
+	el: '.sxg-${el}',
+	data: function () {
+		return ${jsData}
+	},
+	methods: {
+		${jsMothods}
+	}
+})
+</script>
+
+</html>
+`
+
+
+
+	var _name = 'sxg-' + el;
 	var _script = `<script type="text/javascript" src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 <script>
 	var canvas2 = document.createElement("canvas");

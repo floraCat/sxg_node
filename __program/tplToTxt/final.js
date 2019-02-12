@@ -1,6 +1,7 @@
 
 var fs = require("fs");
 var htmlFormat  = require("./htmlFormat.js");
+var jsFormat  = require("./jsFormat.js");
 var vueToHtml  = require("./vueToHtml.js");
 var scssToCss  = require("./scssToCss.js");
 var cssFormat  = require("./cssFormat.js");
@@ -10,7 +11,7 @@ var ES6ToJS  = require("./ES6ToJS.js");
 // var _url_in = './__test/_tpl2.vue';
 // var _url_out = './__test/txt/cat-01-01.txt';
 
-var $$name = 'head-01-01';
+var $$name = 'cat-01-01';
 var _url_in = '../../../tpl/src/_vue/m/1/'+$$name+'.vue';
 var _url_out = '../../templates/m/1/'+$$name+'.txt';
 var _code = fs.readFileSync(_url_in,'utf8');
@@ -24,7 +25,7 @@ var vue2 = '<vue>\n'+vue+'\n</vue>\n\n';
 /*生成 html & jsData*/
 var _obj = vueToHtml(_code);
 var html2 = '<html>\n'+htmlFormat(_obj.html)+'\n</html>\n\n';
-var jsData2 = '<jsData>\n'+JSON.stringify(_obj.data)+'\n</jsData>\n\n';
+var jsData2 = '<jsData>\n'+jsFormat(JSON.stringify(_obj.data))+'\n</jsData>\n\n';
 
 /*生成 js & jsMethods & ES6Methods*/
 var reg_methods = /methods:.*?({[\s\S]*?)<\/script>/;
