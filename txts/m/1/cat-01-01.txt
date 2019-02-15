@@ -1,0 +1,249 @@
+<html>
+<ul class="sxg-cat">
+	<li>
+		<a href="#1">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="栏目1" />
+			<h4>
+				栏目1
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a href="#2">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="栏目2" />
+			<h4>
+				栏目2
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a href="#3">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="栏目3" />
+			<h4>
+				栏目3
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a href="#4">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="栏目4" />
+			<h4>
+				栏目4
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a href="#5">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="栏目5" />
+			<h4>
+				栏目5
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a href="#6">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="栏目6" />
+			<h4>
+				栏目6
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a href="#7">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="栏目7" />
+			<h4>
+				栏目7
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a href="#8">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="栏目8" />
+			<h4>
+				栏目8
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a href="#9">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="栏目9" />
+			<h4>
+				栏目9
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a href="#10">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="栏目10" />
+			<h4>
+				栏目10
+			</h4>
+		</a>
+	</li>
+</ul>
+</html>
+
+<vue>
+<ul class="sxg-cat">
+    <li v-for="(cat,index) in cats" v-bind:key="index">
+        <a :href="cat.href">
+            <img :src="cat.src" :alt="cat.ttl" />
+            <h4 v-text="cat.ttl"></h4>
+        </a>
+    </li>
+</ul>
+</vue>
+
+<scss>
+.sxg-cat {
+    overflow: hidden;
+    li {
+        float: left;
+        width: 20%;
+    }
+    a {
+        display: block;
+        width: .65rem;
+        padding: .05rem 0;
+        margin: 0 auto;
+    }
+    img {
+        width: .36rem;
+        height: .36rem;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+    h4 {
+        text-align: center;
+        line-height: .26rem;
+    }
+}
+</scss>
+
+<less>
+.sxg-cat {
+    overflow: hidden;
+    li {
+        float: left;
+        width: 20%;
+    }
+    a {
+        display: block;
+        width: .65rem;
+        padding: .05rem 0;
+        margin: 0 auto;
+    }
+    img {
+        width: .36rem;
+        height: .36rem;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+    h4 {
+        text-align: center;
+        line-height: .26rem;
+    }
+}
+</less>
+
+<css>
+.sxg-cat {
+    overflow: hidden; 
+}
+.sxg-cat li {
+    float: left;
+    width: 20%; 
+}
+.sxg-cat a {
+    display: block;
+    width: .65rem;
+    padding: .05rem 0;
+    margin: 0 auto; 
+}
+.sxg-cat img {
+    width: .36rem;
+    height: .36rem;
+    margin: 0 auto;
+    border-radius: 50%; 
+}
+.sxg-cat h4 {
+    text-align: center;
+    line-height: .26rem; 
+}
+</css>
+
+<jsData>
+{
+    "cats": [{
+        "ttl": "栏目1",
+        "href": "#1",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "栏目2",
+        "href": "#2",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "栏目3",
+        "href": "#3",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "栏目4",
+        "href": "#4",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "栏目5",
+        "href": "#5",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "栏目6",
+        "href": "#6",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "栏目7",
+        "href": "#7",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "栏目8",
+        "href": "#8",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "栏目9",
+        "href": "#9",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "栏目10",
+        "href": "#10",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    }]
+}
+</jsData>
+
+<js>
+
+</js>
+
+<jsMethods>
+
+</jsMethods>
+
+<ES6Methods>
+
+</ES6Methods>
+
+<dataTool>
+
+</dataTool>
+
+<dataMod>
+
+</dataMod>
+

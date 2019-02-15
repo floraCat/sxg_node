@@ -1,8 +1,11 @@
 var fs = require("fs");
 var path = require('path');
 const opn = require('opn');
+var proxy = require('html2canvas-proxy');
 var express = require('express');
 var app = express();
+
+app.use('/', proxy());
 
 app.set('port',8083);
 

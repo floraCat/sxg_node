@@ -4,9 +4,11 @@
 
 详情：
 
-node执行final.js
+node执行final.js 后面传参如 m/1/cat-01-01，多个参数可逗号隔开
 
-调取 ../../../tpl/src/_vue/ 的模板代码
+如不传参默认遍历/tpl/src/_vue里所有vue文件
+
+遍历所有文件做如下处理：
 
 - html格式化
 

@@ -1,0 +1,214 @@
+<html>
+<div class="sxg-cat">
+	<div>
+		222
+	</div>
+	<div>
+		22222
+	</div>
+	<div class="on">
+		111
+	</div>
+	<li>
+		<a class="img" href="#1">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="分类1" />
+			<h4>
+				分类1
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a class="img" href="#2">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="分类2" />
+			<h4>
+				分类2
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a class="img" href="#3">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="分类3" />
+			<h4>
+				分类3
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a class="img" href="#4">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="分类4" />
+			<h4>
+				分类4
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a class="img" href="#5">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="分类5" />
+			<h4>
+				分类5
+			</h4>
+		</a>
+	</li>
+	<li>
+		<a class="img" href="#6">
+			<img src="http://localhost:8000/imgs/11.jpg" alt="分类6" />
+			<h4>
+				分类6
+			</h4>
+		</a>
+	</li>
+</div>
+</html>
+
+<vue>
+<div class="sxg-cat">
+    <div v-text="test1.b"></div>
+    <div v-text="test2"></div>
+    <div :class="{on:cls.on, on2:cls.on2}">{{test1.a}}</div>
+    <li v-for="cat in cats">
+        <a class="img" :href="cat.href">
+            <img :src="cat.src" :alt="cat.ttl" />
+            <h4 v-text="cat.ttl"></h4>
+        </a>
+    </li>
+</div>
+</vue>
+
+<scss>
+.sxg-cat{ 
+    overflow:hidden; 
+    width:240px;
+    li{ 
+        float:left;  
+        padding:5px 10px;
+    }
+    .img img{ 
+        width:60px; 
+        height:60px;
+    }
+    h4{ 
+        overflow: hidden; 
+        height: 21px; 
+        font-size:12px; 
+        font-weight:normal;
+        text-align:center;
+    }
+}
+</scss>
+
+<less>
+.sxg-cat{ 
+    overflow:hidden; 
+    width:240px;
+    li{ 
+        float:left;  
+        padding:5px 10px;
+    }
+    .img img{ 
+        width:60px; 
+        height:60px;
+    }
+    h4{ 
+        overflow: hidden; 
+        height: 21px; 
+        font-size:12px; 
+        font-weight:normal;
+        text-align:center;
+    }
+}
+</less>
+
+<css>
+.sxg-cat {
+    overflow: hidden;
+    width: 240px; 
+}
+.sxg-cat li {
+    float: left;
+    padding: 5px 10px; 
+}
+.sxg-cat .img img {
+    width: 60px;
+    height: 60px; 
+}
+.sxg-cat h4 {
+    overflow: hidden;
+    height: 21px;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center; 
+}
+</css>
+
+<jsData>
+{
+    "test1": {
+        "a": 111,
+        "b": "222"
+    },
+    "cls": {
+        "on": true,
+        "on2": false
+    },
+    "test2": 22222,
+    "cats": [{
+        "ttl": "分类1",
+        "href": "#1",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "分类2",
+        "href": "#2",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "分类3",
+        "href": "#3",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "分类4",
+        "href": "#4",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "分类5",
+        "href": "#5",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "ttl": "分类6",
+        "href": "#6",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    }]
+}
+</jsData>
+
+<js>
+
+</js>
+
+<jsMethods>
+
+</jsMethods>
+
+<ES6Methods>
+
+</ES6Methods>
+
+<dataTool>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
+</dataTool>
+
+<dataMod>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
+</dataMod>
+

@@ -1,0 +1,95 @@
+<html>
+<div class="sxg-banner" ref="bannerSwiper">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide" v-for="(item, index) in [object Object],[object Object]"
+		v-bind:key="index">
+			<a href="item.href" class="banner_btn">
+				<img src="item.src">
+			</a>
+		</div>
+	</div>
+	<div class="swiper-pagination" slot="pagination">
+	</div>
+</div>
+</html>
+
+<vue>
+<div class="sxg-banner" ref="bannerSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(item, index) in items" v-bind:key="index">
+                <a :href="item.href" class="banner_btn">
+                    <img :src="item.src">
+                </a>
+            </div>
+        </div>
+        <div class="swiper-pagination" slot="pagination"></div>
+    </div>
+</vue>
+
+<scss>
+.sxg-banner {
+    position: relative;
+    height: 2rem;
+    overflow: hidden;
+    .swiper-pagination {
+        bottom: 0;
+    }
+}
+</scss>
+
+<less>
+.sxg-banner {
+    position: relative;
+    height: 2rem;
+    overflow: hidden;
+    .swiper-pagination {
+        bottom: 0;
+    }
+}
+</less>
+
+<css>
+.sxg-banner {
+    position: relative;
+    height: 2rem;
+    overflow: hidden; 
+}
+.sxg-banner .swiper-pagination {
+    bottom: 0; 
+}
+</css>
+
+<jsData>
+{
+    "items": [{
+        "href": "#",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    },
+    {
+        "href": "#",
+        "src": "http://localhost:8000/imgs/11.jpg"
+    }]
+}
+</jsData>
+
+<js>
+
+</js>
+
+<jsMethods>
+
+</jsMethods>
+
+<ES6Methods>
+ action: function () { let self = this; self.$nextTick(function () { /* eslint-disable */ new Swiper(self.$refs.bannerSwiper, { autoplay: { delay: 3000, stopOnLastSlide: true },
+ pagination: { el: '.swiper-pagination', clickable: true }, loop: true }); /* eslint-enable */ }); } }, mounted: function () { this.action(); 
+</ES6Methods>
+
+<dataTool>
+
+</dataTool>
+
+<dataMod>
+
+</dataMod>
+

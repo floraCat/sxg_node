@@ -9,14 +9,34 @@
 	
 <script>
 	var _arr = [];
+	var _file = getQueryString("file");
+	if (_file) {
+		if (_file.indexOf(',')>=0) {
+			_arr = _file.split(',');
+		} else {
+			_arr = [_file];
+		}
+		getHtml(0)
+	} else {
+		getData();
+	}
+
+	/*获取Url参数值*/
+	function getQueryString(key){
+		var reg = new RegExp("(^|&)"+key+"=([^&]*)(&|$)");
+		var result = window.location.search.substr(1).match(reg);
+		return result?decodeURIComponent(result[2]):null;
+	}
+
 	function getData () {
 		$.ajax({
-			url:"http://localhost:8083/getData",
+			url:"http://localhost:8000/getData",
 			type: 'GET',
 			success:function(res){
 				console.log(res);
 				if (res.length > 0) {
 					_arr = res;
+					console.log(_arr);
 					getHtml(0);
 				}
 
@@ -26,25 +46,24 @@
 	function getHtml(_index) {
 		var self = this;
 		$.ajax({
-			url:"http://localhost:8083/getHtml?name="+_arr[_index],
+			url:"http://localhost:8000/getHtml?name="+_arr[_index],
 			type: 'GET',
 			success:function(res){
 				console.log(res);
-				var myWindow=window.open('','','width=800,height=800')
+				var myWindow=window.open('','','width=375,height=800')
 				myWindow.document.write(res);
 				_index ++
 				if (_index < _arr.length) {
 					setTimeout(function () {
 						getHtml(_index);
-					}, 1000);
+					}, 1500);
 				} else {
 					console.log('over');
 				}
 			}
 		});
 	}
-	getData();
-	// getHtml(0);
+	
 </script>
 </body>
 </html>

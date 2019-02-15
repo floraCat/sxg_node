@@ -1,0 +1,245 @@
+<html>
+<ul class="sxg-list">
+	<li>
+		<a class="img" href="#">
+			<img src="http://localhost:8000/imgs/11.jpg">
+		</a>
+		<div class="info">
+			<a class="ttl" href="#">
+				图片标题1
+			</a>
+			<p class="price">
+				￥10.50
+			</p>
+		</div>
+	</li>
+	<li>
+		<a class="img" href="#">
+			<img src="http://localhost:8000/imgs/11.jpg">
+		</a>
+		<div class="info">
+			<a class="ttl" href="#">
+				图片标题2图片标题2图片标题2
+			</a>
+			<p class="price">
+				￥10.50
+			</p>
+		</div>
+	</li>
+	<li>
+		<a class="img" href="#">
+			<img src="http://localhost:8000/imgs/11.jpg">
+		</a>
+		<div class="info">
+			<a class="ttl" href="#">
+				图片标题3
+			</a>
+			<p class="price">
+				￥10.50
+			</p>
+		</div>
+	</li>
+	<li>
+		<a class="img" href="#">
+			<img src="http://localhost:8000/imgs/11.jpg">
+		</a>
+		<div class="info">
+			<a class="ttl" href="#">
+				图片标题4
+			</a>
+			<p class="price">
+				￥10.50
+			</p>
+		</div>
+	</li>
+	<li>
+		<a class="img" href="#">
+			<img src="http://localhost:8000/imgs/11.jpg">
+		</a>
+		<div class="info">
+			<a class="ttl" href="#">
+				图片标题5
+			</a>
+			<p class="price">
+				￥10.50
+			</p>
+		</div>
+	</li>
+	<li>
+		<a class="img" href="#">
+			<img src="http://localhost:8000/imgs/11.jpg">
+		</a>
+		<div class="info">
+			<a class="ttl" href="#">
+				图片标题6
+			</a>
+			<p class="price">
+				￥10.50
+			</p>
+		</div>
+	</li>
+</ul>
+</html>
+
+<vue>
+<ul class="sxg-list">
+    <li v-for="(item,index) in items" v-bind:key="index">
+        <a class="img" :href="item.href">
+            <img :src="item.src">
+        </a>
+        <div class="info">
+            <a class="ttl" :href="item.href" v-text="item.ttl"></a>
+            <p class="price" v-text="item.price"></p>
+        </div>
+    </li>
+</ul>
+</vue>
+
+<scss>
+.sxg-list {
+    overflow: hidden;
+    padding: .1rem 0 0 2.33%;
+    li {
+        float: left;
+        width: 31%;
+        margin: 0 2.33% .1rem 0;
+        border: #eee .01rem solid;
+    }
+    .img {
+        display: block;
+    }
+    .info {
+        padding: .05rem .05rem 0;
+    }
+    .ttl {
+        display: block;
+        height: .4rem;
+        line-height: .2rem;
+        overflow: hidden;
+    }
+    .price {
+        color: #cf5d4e;
+        font-weight: bold;
+    }
+}
+</scss>
+
+<less>
+.sxg-list {
+    overflow: hidden;
+    padding: .1rem 0 0 2.33%;
+    li {
+        float: left;
+        width: 31%;
+        margin: 0 2.33% .1rem 0;
+        border: #eee .01rem solid;
+    }
+    .img {
+        display: block;
+    }
+    .info {
+        padding: .05rem .05rem 0;
+    }
+    .ttl {
+        display: block;
+        height: .4rem;
+        line-height: .2rem;
+        overflow: hidden;
+    }
+    .price {
+        color: #cf5d4e;
+        font-weight: bold;
+    }
+}
+</less>
+
+<css>
+.sxg-list {
+    overflow: hidden;
+    padding: .1rem 0 0 2.33%; 
+}
+.sxg-list li {
+    float: left;
+    width: 31%;
+    margin: 0 2.33% .1rem 0;
+    border: #eee .01rem solid; 
+}
+.sxg-list .img {
+    display: block; 
+}
+.sxg-list .info {
+    padding: .05rem .05rem 0; 
+}
+.sxg-list .ttl {
+    display: block;
+    height: .4rem;
+    line-height: .2rem;
+    overflow: hidden; 
+}
+.sxg-list .price {
+    color: #cf5d4e;
+    font-weight: bold; 
+}
+</css>
+
+<jsData>
+{
+    "items": [{
+        "ttl": "图片标题1",
+        "href": "#",
+        "src": "http://localhost:8000/imgs/11.jpg",
+        "price": "￥10.50"
+    },
+    {
+        "ttl": "图片标题2图片标题2图片标题2",
+        "href": "#",
+        "src": "http://localhost:8000/imgs/11.jpg",
+        "price": "￥10.50"
+    },
+    {
+        "ttl": "图片标题3",
+        "href": "#",
+        "src": "http://localhost:8000/imgs/11.jpg",
+        "price": "￥10.50"
+    },
+    {
+        "ttl": "图片标题4",
+        "href": "#",
+        "src": "http://localhost:8000/imgs/11.jpg",
+        "price": "￥10.50"
+    },
+    {
+        "ttl": "图片标题5",
+        "href": "#",
+        "src": "http://localhost:8000/imgs/11.jpg",
+        "price": "￥10.50"
+    },
+    {
+        "ttl": "图片标题6",
+        "href": "#",
+        "src": "http://localhost:8000/imgs/11.jpg",
+        "price": "￥10.50"
+    }]
+}
+</jsData>
+
+<js>
+
+</js>
+
+<jsMethods>
+
+</jsMethods>
+
+<ES6Methods>
+
+</ES6Methods>
+
+<dataTool>
+
+</dataTool>
+
+<dataMod>
+
+</dataMod>
+

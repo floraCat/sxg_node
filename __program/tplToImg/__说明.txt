@@ -1,1 +1,17 @@
 功能：把模板生成图片
+
+打开链接：
+http://localhost:8000/__program/tplToImg/_htmlToImg.html
+
+
+详情：
+
+- 链接可传参file=***，如传参只生成参数的模板图片，多个模板可逗号隔开
+
+- 如不传参默认遍历/templates里所有txt文件生成图片下载
+
+- 用到server.js的get("getData")和get("/getHtml")两个请求
+
+- getData用于不传参时获取所有txt文件
+
+- getHtml用于构建自动下载模板图片的html，返回前端后逐一新开窗口自动下载图片
