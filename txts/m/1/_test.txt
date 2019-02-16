@@ -1,10 +1,227 @@
-<html>
+<---jsData--->
+"test1": {
+    "a": 111,
+    "b": "222"
+},
+"cls": {
+    "on": true,
+    "on2": false
+},
+"test2": 22222,
+"test3": true,
+"test4": {
+    "test5": {
+        "test6": 66666
+    }
+},
+"cols": [{
+    "ttl": "栏目1"
+},
+{
+    "ttl": "栏目2"
+}],
+"cats": [{
+    "ttl": "分类1",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类2",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类3",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类4",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类5",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类6",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+}]
+</jsData>
+
+<---ES6Data--->
+"test1": {
+    "a": 111,
+    "b": "222"
+},
+"cls": {
+    "on": true,
+    "on2": false
+},
+"test2": 22222,
+"test3": true,
+"test4": {
+    "test5": {
+        "test6": 66666
+    }
+},
+"cols": [{
+    "ttl": "栏目1"
+},
+{
+    "ttl": "栏目2"
+}],
+"cats": [{
+    "ttl": "分类1",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类2",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类3",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类4",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类5",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类6",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+}]
+</ES6Data>
+
+<---js--->
+function fun1() {
+    console.log(11111);
+}
+function fun2() {
+    console.log(22222);
+}
+</js>
+
+<---jsMethods--->
+fun1: function fun1() {
+    console.log(11111);
+}
+
+fun2: function fun2() {
+    console.log(22222);
+}
+</jsMethods>
+
+<---ES6Methods--->
+fun1() {
+    console.log(11111);
+},
+fun2() {
+    console.log(22222);
+}
+</ES6Methods>
+
+<---angularJs--->
+const test1 = {
+    "a": 111,
+    "b": "222"
+};
+const cls = {
+    "on": true,
+    "on2": false
+};
+const test2 = 22222;
+const test3 = true;
+const test4 = {
+    "test5": {
+        "test6": 66666
+    }
+};
+const cols = [{
+    "ttl": "栏目1"
+},
+{
+    "ttl": "栏目2"
+}];
+const cats = [{
+    "ttl": "分类1",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类2",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类3",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类4",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类5",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+},
+{
+    "ttl": "分类6",
+    "href": "#",
+    "src": "http://localhost:8000/imgs/11.jpg"
+}];
+</angularJs>
+
+<---mounted--->
+console.log('mounted');
+</mounted>
+
+<---jsImport--->
+<script src="swiper"></script>
+<link rel="stylesheet" href="swiper/dist/css/swiper.css" />
+</jsImport>
+
+<---vueImport--->
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.css';
+</vueImport>
+
+<---angularImport--->
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.css';
+</angularImport>
+
+<---reactImport--->
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.css';
+</reactImport>
+
+<---html--->
 <div class="sxg-_test">
-	<div>
+	<div onclick="fun1(111)">
 		222
 	</div>
-	<div v-if="111 === 111 && true">
-		22222
+	<div>
+		has-v-if
+	</div>
+	<div onclick="fun2()">
+		has-v-if-2
 	</div>
 	<div class="on">
 		111
@@ -57,13 +274,19 @@
 			</h4>
 		</a>
 	</li>
+	<p v-for="col in object Object,[object Object]">
+		<h4>
+			col.ttl
+		</h4>
+	</p>
 </div>
 </html>
 
-<vue>
+<---vue--->
 <div class="sxg-_test">
-    <div v-text="test1.b"></div>
-    <div v-if="test1.a === 111 && test3" v-text="test2"></div>
+    <div v-text="test1.b" @click="fun1(test1.a)"></div>
+    <div v-if="'222' === test1.b && test3">has-v-if</div>
+    <div v-if="test3" @click="fun2()">has-v-if-2</div>
     <div :class="{on:cls.on, on2:cls.on2}">{{test1.a}}</div>
     <li v-for="cat in cats">
         <a class="img" :href="cat.href">
@@ -71,10 +294,60 @@
             <h4 v-text="cat.ttl"></h4>
         </a>
     </li>
+    <p v-for="col in cols">
+        <h4 v-text="col.ttl"></h4>
+    </p>
 </div>
 </vue>
 
-<scss>
+<---angular--->
+<div class="sxg-_test">
+    <div @click="fun1(test1.a)">{{test1.b}}</div>
+    <div v-if="'222' === test1.b && test3">has-v-if</div>
+    <div v-if="test3" @click="fun2()">has-v-if-2</div>
+    <div href="{{cat.href}}">{{test1.a}}</div>
+    <li  *ngFor="let cat of cats">
+        <a class="img" href="{{cat.href}}">
+            <img href="{{cat.href}}" href="{{cat.href}}" />
+            <h4>{{cat.ttl}}</h4>
+        </a>
+    </li>
+    <p  *ngFor="let col of cols">
+        <h4>{{col.ttl}}</h4>
+    </p>
+</div>
+</angular>
+
+<---react--->
+const test1 = {"a":111,"b":"222"};
+const cls = {"on":true,"on2":false};
+const test2 = 22222;
+const test3 = true;
+const test4 = {"test5":{"test6":66666}};
+const cols = [{"ttl":"栏目1"},{"ttl":"栏目2"}];
+const cats = [{"ttl":"分类1","href":"#","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"分类2","href":"#","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"分类3","href":"#","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"分类4","href":"#","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"分类5","href":"#","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"分类6","href":"#","src":"http://localhost:8000/imgs/11.jpg"}];
+const cats.map(( =>
+<li>
+        <a className="img" href="{cat.href}">
+            <img href="{cat.href}" href="{cat.href}" />
+            <h4>{cat.ttl}</h4>
+        </a>
+    </li>
+const cols.map(( =>
+<p>
+        <h4>{col.ttl}</h4>
+    </p>
+return <div className="sxg-_test">
+    <div @click="fun1(test1.a)">{test1.b}</div>
+    <div v-if="'222' === test1.b && test3">has-v-if</div>
+    <div v-if="test3" @click="fun2()">has-v-if-2</div>
+    <div href="{cat.href}">{{test1.a}}</div>
+    {_cats}
+    {_cols}
+</div>
+</react>
+
+<---scss--->
 .sxg-_test{ 
     overflow:hidden; 
     width:240px;
@@ -96,7 +369,7 @@
 }
 </scss>
 
-<less>
+<---less--->
 .sxg-_test{ 
     overflow:hidden; 
     width:240px;
@@ -118,7 +391,7 @@
 }
 </less>
 
-<css>
+<---css--->
 .sxg-_test {
     overflow: hidden;
     width: 240px; 
@@ -140,64 +413,7 @@
 }
 </css>
 
-<jsData>
-{
-    "test1": {
-        "a": 111,
-        "b": "222"
-    },
-    "cls": {
-        "on": true,
-        "on2": false
-    },
-    "test2": 22222,
-    "test3": true,
-    "cats": [{
-        "ttl": "分类1",
-        "href": "#",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "分类2",
-        "href": "#",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "分类3",
-        "href": "#",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "分类4",
-        "href": "#",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "分类5",
-        "href": "#",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "分类6",
-        "href": "#",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    }]
-}
-</jsData>
-
-<js>
-
-</js>
-
-<jsMethods>
-
-</jsMethods>
-
-<ES6Methods>
-
-</ES6Methods>
-
-<dataTool>
+<---dataTool--->
 [
     {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
     {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
@@ -205,7 +421,7 @@
 ]
 </dataTool>
 
-<dataMod>
+<---dataMod--->
 [
     {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
     {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},

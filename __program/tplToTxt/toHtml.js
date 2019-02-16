@@ -63,6 +63,8 @@ function toHtml (_Code,_jsData) {
 			// 识别 逗号前 | }右大括号前 | "右双引号前 | 空格前 | @click参数右括号前 的变量
 			var reg_val = eval("/"+_key+"\.*?\\w*?(?=,)|"+_key+"\.*?\\w*?(?=})|"+_key+"\.*?\\w*?(?=\")|"+_key+"\.*?\\w*?(?=\\s)|"+_key+"\.*?\\w*?(?=\\))/g");
 			var _match = _Code.match(reg_val);
+			// console.log(11111);
+			// console.log(_match);return
 			if (_match) {
 				_match.map(function ($val) {
 					var _match2 = $val.match(reg_val);
@@ -88,17 +90,24 @@ function toHtml (_Code,_jsData) {
 			} else {
 				__jsData = __jsData[_vals[x]];
 			}
+			if (typeof __jsData === 'string') {
+				__jsData = "'"+__jsData+"'";
+			}
 			_Code = function() {
 				return _Code.replace(eval("/"+_vals[x]+"/"), __jsData)
 			}();
 		}
 	}
 
+
 	// 匹配v-text
 	var reg_vTxt = /(\s+v-text.+?\"(.+?)\")([\s\S]*?>)(<\/)/g;
 	_Code = function() {
 		return _Code.replace(reg_vTxt,function () {
 			let _arg = arguments
+			if (_arg[2][0] === "'") {
+				_arg[2] = _arg[2].substr(1,_arg[2].length-2);
+			}
 			return _arg[3] + _arg[2] + _arg[4]
 		});
 	}();
@@ -154,34 +163,34 @@ function toHtml (_Code,_jsData) {
 
 	// 处理v-if
 	var reg_vIf = /\sv-if=\"([\s\S]*?)\"/g;
-	var match_vIf = _Code.match(reg_vIf);
-	if (match_vIf && match_vIf.length > 0) {
-		var _equals = []
-		for (var x = 0; x < match_vIf.length; x ++) {
-			var reg_equal = /\"(.+)\s===\s(.+?)\s/;
-			var match_equal = match_vIf[x].match(reg_equal);
-			if (match_equal) {
-				if (match_equal[1].match(/\'/)) {
-					if (!match_equal[2].match(/\'/)) {
-						var _temp = match_vIf[x].replace(" "+match_equal[2]," '"+match_equal[2]+"'");
-						_equals.push(_temp)
-					}
+	var _equals = [];
+	_Code.replace(reg_vIf, function () {
+		var _arg = arguments;
+		// 让等号两边类型同步
+		var reg_equal = /\"(.+)\s===\s(.+?)\s/;
+		var match_equal = _arg[0].match(reg_equal);
+		if (match_equal) {
+			if (match_equal[1].match(/\'/)) {
+				if (!match_equal[2].match(/\'/)) { // 变量值类型不同于左边，把字符串的引号去掉
+					_arg[0] = _arg[0].replace(" "+match_equal[2]," '"+match_equal[2]+"'");
 				}
 			}
 		}
-	}
-	if (_equals && _equals.length > 0) {
+		_equals.push(_arg[0]);
+		return _arg[0];
+	});
+	if (_equals.length > 0) {
 		for (var y = 0; y < _equals.length; y ++) {
 			var reg_equal2 = /.+\"(.+)\"/;
 			var match_equal2 = _equals[y].match(reg_equal2);
 			if (match_equal2) {
-				if (eval(match_equal2[1])) {
-					_Code = _Code.replace(match_vIf[y],"");
-				} else {
+				if (eval(match_equal2[1])) { // if为正
+					_Code = _Code.replace(_equals[y],"");
+				} else { // if为负时把整个标签删掉
 					var reg_vIf2 = /<(\w+)?\s+v-if[\s\S]*?<\/(\1)>/;
-					var match_vIf2 = _Code.match(reg_vIf2);
-					if (match_vIf2) {
-						_Code = _Code.replace(match_vIf2[0],'');
+					var _equals2 = _Code.match(reg_vIf2);
+					if (_equals2) {
+						_Code = _Code.replace(_equals2[0]+'\n','');
 					}
 				}
 			}
@@ -190,13 +199,10 @@ function toHtml (_Code,_jsData) {
 
 
 	// 匹配事件监听
-	var reg_event = /\s@(.+?=\"\w+\()([\s\S]*?)(\)\")/;
+	var reg_event = /\s@(.+?=\"\w+\()([\s\S]*?)(\)\")/g;
 	_Code = function() {
 		return _Code.replace(reg_event,function () {
 			var _arg = arguments
-			if (typeof eval(_arg[2]) === 'string') {
-				_arg[2] = "'" + eval(_arg[2]) + "'";
-			}
 			return ' on'+_arg[1]+_arg[2]+_arg[3]
 		});
 	}();
