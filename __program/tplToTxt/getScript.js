@@ -3,11 +3,12 @@ var babel = require("babel-core");
 function getES6Data (_Code) {
 	var _rs = ''
 	// 匹配脚本中的djsData字符串
-	if (_Code.indexOf('mounted ()')>=0) {
-		var reg_script = /data[\s\S]*?\(\)[\s\S]*?{[\s\S]*?return[\s\S]*?{([\s\S]*)}[\s\S]*?},[\s\S]*?mounted/;
-	} else {
-		var reg_script = /data[\s\S]*?\(\)[\s\S]*?{[\s\S]*?return[\s\S]*?({[\s\S]*})[\s\S]*?},[\s\S]*?methods:/;
-	}
+	var reg_script = /data[\s\S]*?\(\)[\s\S]*?return[\s\S]*?{([\s\S]*?)};/
+	// if (_Code.indexOf('mounted ()')>=0) {
+	// 	var reg_script = /data[\s\S]*?\(\)[\s\S]*?{[\s\S]*?return[\s\S]*?{([\s\S]*)};[\s\S]*?},[\s\S]*?mounted/;
+	// } else {
+		// var reg_script = /data[\s\S]*?\(\)[\s\S]*?{[\s\S]*?return[\s\S]*?({[\s\S]*};)[\s\S]*?},[\s\S]*?methods:/;
+	// }
 	var _str = _Code.match(reg_script)
 	if (_str) {
 		_rs = _str[1]
@@ -16,6 +17,7 @@ function getES6Data (_Code) {
 	} else {
 		_rs = ''
 	}
+	
 	return _rs;
 }
 
@@ -86,7 +88,7 @@ function strToObj (_str) {
 	var _reg = /(\w+?):\s/g;
 	_str.replace(_reg,function () {
 		var _arg = arguments;
-		_str = _str.replace(eval("/(?<![\"])"+_arg[1]+"/"),'"'+_arg[1]+'"');
+		_str = _str.replace(eval("/(?<![\"])"+_arg[1]+"(?=:)/"),'"'+_arg[1]+'"');
 	})
 	return _str;
 }

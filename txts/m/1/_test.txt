@@ -1,112 +1,112 @@
-<---jsData--->
-"test1": {
-    "a": 111,
-    "b": "222"
+<!--------><jsData>
+test1: {
+    a: 111,
+    b: '222'
 },
-"cls": {
-    "on": true,
-    "on2": false
+cls: {
+    on: true,
+    on2: false
 },
-"test2": 22222,
-"test3": true,
-"test4": {
-    "test5": {
-        "test6": 66666
+test2: 22222,
+test3: true,
+test4: {
+    test5: {
+        test6: 66666
     }
 },
-"cols": [{
-    "ttl": "栏目1"
+cols: [{
+    ttl: '栏目1'
 },
 {
-    "ttl": "栏目2"
+    ttl: '栏目2'
 }],
-"cats": [{
-    "ttl": "分类1",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+cats: [{
+    ttl: '分类1',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类2",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类2',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类3",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类3',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类4",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类4',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类5",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类5',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类6",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类6',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 }]
 </jsData>
 
-<---ES6Data--->
-"test1": {
-    "a": 111,
-    "b": "222"
+<!--------><ES6Data>
+test1: {
+    a: 111,
+    b: '222'
 },
-"cls": {
-    "on": true,
-    "on2": false
+cls: {
+    on: true,
+    on2: false
 },
-"test2": 22222,
-"test3": true,
-"test4": {
-    "test5": {
-        "test6": 66666
+test2: 22222,
+test3: true,
+test4: {
+    test5: {
+        test6: 66666
     }
 },
-"cols": [{
-    "ttl": "栏目1"
+cols: [{
+    ttl: '栏目1'
 },
 {
-    "ttl": "栏目2"
+    ttl: '栏目2'
 }],
-"cats": [{
-    "ttl": "分类1",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+cats: [{
+    ttl: '分类1',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类2",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类2',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类3",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类3',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类4",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类4',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类5",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类5',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类6",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类6',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 }]
 </ES6Data>
 
-<---js--->
+<!--------><js>
 function fun1() {
     console.log(11111);
 }
@@ -115,7 +115,7 @@ function fun2() {
 }
 </js>
 
-<---jsMethods--->
+<!--------><jsMethods>
 fun1: function fun1() {
     console.log(11111);
 }
@@ -125,7 +125,7 @@ fun2: function fun2() {
 }
 </jsMethods>
 
-<---ES6Methods--->
+<!--------><ES6Methods>
 fun1() {
     console.log(11111);
 },
@@ -134,85 +134,85 @@ fun2() {
 }
 </ES6Methods>
 
-<---angularJs--->
+<!--------><angularJs>
 const test1 = {
-    "a": 111,
-    "b": "222"
+    a: 111,
+    b: '222'
 };
 const cls = {
-    "on": true,
-    "on2": false
+    on: true,
+    on2: false
 };
 const test2 = 22222;
 const test3 = true;
 const test4 = {
-    "test5": {
-        "test6": 66666
+    test5: {
+        test6: 66666
     }
 };
 const cols = [{
-    "ttl": "栏目1"
+    ttl: '栏目1'
 },
 {
-    "ttl": "栏目2"
+    ttl: '栏目2'
 }];
 const cats = [{
-    "ttl": "分类1",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类1',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类2",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类2',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类3",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类3',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类4",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类4',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类5",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类5',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 },
 {
-    "ttl": "分类6",
-    "href": "#",
-    "src": "http://localhost:8000/imgs/11.jpg"
+    ttl: '分类6',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
 }];
 </angularJs>
 
-<---mounted--->
+<!--------><mounted>
 console.log('mounted');
 </mounted>
 
-<---jsImport--->
+<!--------><jsImport>
 <script src="swiper"></script>
 <link rel="stylesheet" href="swiper/dist/css/swiper.css" />
 </jsImport>
 
-<---vueImport--->
+<!--------><vueImport>
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.css';
 </vueImport>
 
-<---angularImport--->
+<!--------><angularImport>
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.css';
 </angularImport>
 
-<---reactImport--->
+<!--------><reactImport>
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.css';
 </reactImport>
 
-<---html--->
+<!--------><html>
 <div class="sxg-_test">
 	<div onclick="fun1(111)">
 		222
@@ -274,15 +274,18 @@ import 'swiper/dist/css/swiper.css';
 			</h4>
 		</a>
 	</li>
-	<p v-for="col in object Object,[object Object]">
+	<p>
 		<h4>
-			col.ttl
+			栏目1
+		</h4>
+		<h4>
+			栏目2
 		</h4>
 	</p>
 </div>
 </html>
 
-<---vue--->
+<!--------><vue>
 <div class="sxg-_test">
     <div v-text="test1.b" @click="fun1(test1.a)"></div>
     <div v-if="'222' === test1.b && test3">has-v-if</div>
@@ -294,13 +297,13 @@ import 'swiper/dist/css/swiper.css';
             <h4 v-text="cat.ttl"></h4>
         </a>
     </li>
-    <p v-for="col in cols">
-        <h4 v-text="col.ttl"></h4>
+    <p>
+        <h4 v-for="col in cols" v-text="col.ttl"></h4>
     </p>
 </div>
 </vue>
 
-<---angular--->
+<!--------><angular>
 <div class="sxg-_test">
     <div @click="fun1(test1.a)">{{test1.b}}</div>
     <div v-if="'222' === test1.b && test3">has-v-if</div>
@@ -312,13 +315,13 @@ import 'swiper/dist/css/swiper.css';
             <h4>{{cat.ttl}}</h4>
         </a>
     </li>
-    <p  *ngFor="let col of cols">
-        <h4>{{col.ttl}}</h4>
+    <p>
+        <h4  *ngFor="let col of cols">{{col.ttl}}</h4>
     </p>
 </div>
 </angular>
 
-<---react--->
+<!--------><react>
 const test1 = {"a":111,"b":"222"};
 const cls = {"on":true,"on2":false};
 const test2 = 22222;
@@ -334,20 +337,20 @@ const cats.map(( =>
         </a>
     </li>
 const cols.map(( =>
-<p>
-        <h4>{col.ttl}</h4>
-    </p>
+<h4>{col.ttl}</h4>
 return <div className="sxg-_test">
     <div @click="fun1(test1.a)">{test1.b}</div>
     <div v-if="'222' === test1.b && test3">has-v-if</div>
     <div v-if="test3" @click="fun2()">has-v-if-2</div>
     <div href="{cat.href}">{{test1.a}}</div>
     {_cats}
-    {_cols}
+    <p>
+        {_cols}
+    </p>
 </div>
 </react>
 
-<---scss--->
+<!--------><scss>
 .sxg-_test{ 
     overflow:hidden; 
     width:240px;
@@ -369,7 +372,7 @@ return <div className="sxg-_test">
 }
 </scss>
 
-<---less--->
+<!--------><less>
 .sxg-_test{ 
     overflow:hidden; 
     width:240px;
@@ -391,7 +394,7 @@ return <div className="sxg-_test">
 }
 </less>
 
-<---css--->
+<!--------><css>
 .sxg-_test {
     overflow: hidden;
     width: 240px; 
@@ -413,7 +416,7 @@ return <div className="sxg-_test">
 }
 </css>
 
-<---dataTool--->
+<!--------><dataTool>
 [
     {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
     {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
@@ -421,7 +424,7 @@ return <div className="sxg-_test">
 ]
 </dataTool>
 
-<---dataMod--->
+<!--------><dataMod>
 [
     {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
     {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},

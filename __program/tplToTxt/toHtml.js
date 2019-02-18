@@ -2,27 +2,26 @@
 function toHtml (_Code,_jsData) {
 
 	// 匹配v-for整个标签(此处为整个li元素)
-	var reg_vFor = /<(\w+)?\s+v-for[\s\S]*?<\/(\1)>/;
+	var reg_vFor = /<(\w+)?\s+v-for[\s\S]*?<\/(\1)>/g;
 	var v_for = _Code.match(reg_vFor);
-
-	var for_items = '---';
-	if (v_for) {
+	_Code.replace(reg_vFor, function () {
+		var _arg = arguments
 
 		// 先v-for整标签替换成字符'__vFor'，后面处理完会替换回来
 		_Code = function() {
-			return _Code.replace(v_for[0],'__vFor');
+			return _Code.replace(_arg[0],'__vFor');
 		}();
 
 		// 匹配v-for的数据名称(如 items)
 		var reg_data = /\"(.+)\s+in\s+(\w+)/;
-		var for_item = v_for[0].match(reg_data)[1];
+		var for_item = _arg[0].match(reg_data)[1];
 		if (for_item.indexOf(',')>=0) {
 			for_item = for_item.trim().substr(1,for_item.length-2).split(',')[0]
 		}
-		for_items = v_for[0].match(reg_data)[2];
+		for_items = _arg[0].match(reg_data)[2];
 		var itemsVal = _jsData[for_items];
 		var itemsLen = itemsVal.length;
-		var newItem = JSON.parse(JSON.stringify(v_for[0]));
+		var newItem = JSON.parse(JSON.stringify(_arg[0]));
 
 		// 去掉v-for
 		var reg_vFor2 = eval("/\\s+v-for[\\s\\S]*?"+for_items+"\"/");
@@ -44,7 +43,7 @@ function toHtml (_Code,_jsData) {
 			_newItem = function() {
 				return _newItem.replace(reg_item, function () {
 					var _arg = arguments
-					return itemVal[_arg[2]].trim()
+					return itemVal[_arg[2]]
 				})
 			}();	
 
@@ -53,48 +52,45 @@ function toHtml (_Code,_jsData) {
 		_Code = function() {
 			return _Code.replace('__vFor', newItems);
 		}();
-	}
+
+	});
 
 
 	// 替换变量(对象和字符串)
 	var _vals = [];
 	for (let _key in _jsData) {
-		if (typeof _key !== for_items) {
-			// 识别 逗号前 | }右大括号前 | "右双引号前 | 空格前 | @click参数右括号前 的变量
-			var reg_val = eval("/"+_key+"\.*?\\w*?(?=,)|"+_key+"\.*?\\w*?(?=})|"+_key+"\.*?\\w*?(?=\")|"+_key+"\.*?\\w*?(?=\\s)|"+_key+"\.*?\\w*?(?=\\))/g");
-			var _match = _Code.match(reg_val);
-			// console.log(11111);
-			// console.log(_match);return
-			if (_match) {
-				_match.map(function ($val) {
-					var _match2 = $val.match(reg_val);
-					if (_match2) {
-						_match2.map(function ($val2) {
-							_vals.push($val2);
-						});
-					} else {
-						_vals.push($val);
-					}
-				})
-			}
+		// 识别 逗号前 | }右大括号前 | "右双引号前 | 空格前 | @click参数右括号前 的变量
+		var reg_val = eval("/"+_key+"\.*?\\w*?(?=,)|"+_key+"\.*?\\w*?(?=})|"+_key+"\.*?\\w*?(?=\")|"+_key+"\.*?\\w*?(?=\\s)|"+_key+"\.*?\\w*?(?=\\))/g");
+		var _match = _Code.match(reg_val);
+		if (_match) {
+			_match.map(function ($val) {
+				var _match2 = $val.match(reg_val);
+				if (_match2) {
+					_match2.map(function ($val2) {
+						_vals.push($val2);
+					});
+				} else {
+					_vals.push($val);
+				}
+			})
 		}
 	}
 	if (_vals) {
 		for (var x = 0; x < _vals.length; x ++) {
-			var __jsData = JSON.parse(JSON.stringify(_jsData));
+			var _jsData2 = JSON.parse(JSON.stringify(_jsData));
 			if (_vals[x].indexOf('.') >=0) {
 				var _arr = _vals[x].split('.');
 				for (var y = 0; y < _arr.length; y ++) {
-					__jsData = __jsData[_arr[y]]
+					_jsData2 = _jsData2[_arr[y]]
 				}
 			} else {
-				__jsData = __jsData[_vals[x]];
+				_jsData2 = _jsData2[_vals[x]];
 			}
-			if (typeof __jsData === 'string') {
-				__jsData = "'"+__jsData+"'";
+			if (typeof _jsData2 === 'string') {
+				_jsData2 = "'"+_jsData2+"'";
 			}
 			_Code = function() {
-				return _Code.replace(eval("/"+_vals[x]+"/"), __jsData)
+				return _Code.replace(eval("/"+_vals[x]+"/"), _jsData2)
 			}();
 		}
 	}
@@ -219,16 +215,7 @@ function toHtml (_Code,_jsData) {
 		});
 	}();
 
-
-
-	if (v_for) {
-		var _Html = _Code.replace(v_for[0],newItems);
-	} else {
-		var _Html = _Code;
-	}
-
-	return _Html
-
+	return _Code
 }
 
 exports = module.exports = toHtml;

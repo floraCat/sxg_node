@@ -1,4 +1,48 @@
-<html>
+<!--------><jsData>
+pageTitle: '页面标题'
+</jsData>
+
+<!--------><ES6Data>
+pageTitle: '页面标题'
+</ES6Data>
+
+<!--------><js>
+
+</js>
+
+<!--------><jsMethods>
+
+</jsMethods>
+
+<!--------><ES6Methods>
+
+</ES6Methods>
+
+<!--------><angularJs>
+const pageTitle = '页面标题';
+</angularJs>
+
+<!--------><mounted>
+
+</mounted>
+
+<!--------><jsImport>
+
+</jsImport>
+
+<!--------><vueImport>
+
+</vueImport>
+
+<!--------><angularImport>
+
+</angularImport>
+
+<!--------><reactImport>
+
+</reactImport>
+
+<!--------><html>
 <div class="sxg-head">
 	<a href="#" class="lt">
 		<img class="icon" src="http://localhost:8000/imgs/11.jpg" />
@@ -12,7 +56,7 @@
 </div>
 </html>
 
-<vue>
+<!--------><vue>
 <div class="sxg-head">
   <a href="#" class="lt"><img class="icon" src="http://localhost:8000/imgs/11.jpg" /></a>
   <h2 v-text="pageTitle"></h2>
@@ -20,7 +64,24 @@
 </div>
 </vue>
 
-<scss>
+<!--------><angular>
+<div class="sxg-head">
+  <a href="#" class="lt"><img class="icon" src="http://localhost:8000/imgs/11.jpg" /></a>
+  <h2>{{pageTitle}}</h2>
+  <a href="#" class="rt"><img class="icon" src="http://localhost:8000/imgs/11.jpg" /></a>
+</div>
+</angular>
+
+<!--------><react>
+const pageTitle = "页面标题";
+return <div className="sxg-head">
+  <a href="#" className="lt"><img className="icon" src="http://localhost:8000/imgs/11.jpg" /></a>
+  <h2>{pageTitle}</h2>
+  <a href="#" className="rt"><img className="icon" src="http://localhost:8000/imgs/11.jpg" /></a>
+</div>
+</react>
+
+<!--------><scss>
 .sxg-head {
     z-index: 100;
     position: relative;
@@ -68,7 +129,7 @@
 }
 </scss>
 
-<less>
+<!--------><less>
 .sxg-head {
     z-index: 100;
     position: relative;
@@ -116,7 +177,7 @@
 }
 </less>
 
-<css>
+<!--------><css>
 .sxg-head {
     z-index: 100;
     position: relative;
@@ -164,25 +225,7 @@
 }
 </css>
 
-<jsData>
-{
-    "pageTitle": "页面标题"
-}
-</jsData>
-
-<js>
-
-</js>
-
-<jsMethods>
-
-</jsMethods>
-
-<ES6Methods>
-
-</ES6Methods>
-
-<dataTool>
+<!--------><dataTool>
 [
     {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
     {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
@@ -190,7 +233,7 @@
 ]
 </dataTool>
 
-<dataMod>
+<!--------><dataMod>
 [
     {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
     {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},

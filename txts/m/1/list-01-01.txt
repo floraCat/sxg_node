@@ -1,4 +1,153 @@
-<html>
+<!--------><jsData>
+items: [{
+    ttl: '图片标题1',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题2图片标题2图片标题2',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题3',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题4',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题5',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题6',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+}]
+</jsData>
+
+<!--------><ES6Data>
+items: [{
+    ttl: '图片标题1',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题2图片标题2图片标题2',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题3',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题4',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题5',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题6',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+}]
+</ES6Data>
+
+<!--------><js>
+
+</js>
+
+<!--------><jsMethods>
+
+</jsMethods>
+
+<!--------><ES6Methods>
+
+</ES6Methods>
+
+<!--------><angularJs>
+const items = [{
+    ttl: '图片标题1',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题2图片标题2图片标题2',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题3',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题4',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题5',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+},
+{
+    ttl: '图片标题6',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg',
+    price: '￥10.50'
+}];
+</angularJs>
+
+<!--------><mounted>
+
+</mounted>
+
+<!--------><jsImport>
+
+</jsImport>
+
+<!--------><vueImport>
+
+</vueImport>
+
+<!--------><angularImport>
+
+</angularImport>
+
+<!--------><reactImport>
+
+</reactImport>
+
+<!--------><html>
 <ul class="sxg-list">
 	<li>
 		<a class="img" href="#">
@@ -81,7 +230,7 @@
 </ul>
 </html>
 
-<vue>
+<!--------><vue>
 <ul class="sxg-list">
     <li v-for="(item,index) in items" v-bind:key="index">
         <a class="img" :href="item.href">
@@ -95,7 +244,38 @@
 </ul>
 </vue>
 
-<scss>
+<!--------><angular>
+<ul class="sxg-list">
+    <li  *ngFor="let (item,ofdex) of items" v-bind:key="index">
+        <a class="img" href="{{item.href}}">
+            <img href="{{item.href}}">
+        </a>
+        <div class="info">
+            <a class="ttl" href="{{item.href}}">{{item.ttl}}</a>
+            <p class="price">{{item.price}}</p>
+        </div>
+    </li>
+</ul>
+</angular>
+
+<!--------><react>
+const items = [{"ttl":"图片标题1","href":"#","src":"http://localhost:8000/imgs/11.jpg","price":"￥10.50"},{"ttl":"图片标题2图片标题2图片标题2","href":"#","src":"http://localhost:8000/imgs/11.jpg","price":"￥10.50"},{"ttl":"图片标题3","href":"#","src":"http://localhost:8000/imgs/11.jpg","price":"￥10.50"},{"ttl":"图片标题4","href":"#","src":"http://localhost:8000/imgs/11.jpg","price":"￥10.50"},{"ttl":"图片标题5","href":"#","src":"http://localhost:8000/imgs/11.jpg","price":"￥10.50"},{"ttl":"图片标题6","href":"#","src":"http://localhost:8000/imgs/11.jpg","price":"￥10.50"}];
+const items.map(( =>
+<li v-bind:key="index">
+        <a className="img" href="{item.href}">
+            <img href="{item.href}">
+        </a>
+        <div className="info">
+            <a className="ttl" href="{item.href}">{item.ttl}</a>
+            <p className="price">{item.price}</p>
+        </div>
+    </li>
+return <ul className="sxg-list">
+    {_items}
+</ul>
+</react>
+
+<!--------><scss>
 .sxg-list {
     overflow: hidden;
     padding: .1rem 0 0 2.33%;
@@ -124,7 +304,7 @@
 }
 </scss>
 
-<less>
+<!--------><less>
 .sxg-list {
     overflow: hidden;
     padding: .1rem 0 0 2.33%;
@@ -153,7 +333,7 @@
 }
 </less>
 
-<css>
+<!--------><css>
 .sxg-list {
     overflow: hidden;
     padding: .1rem 0 0 2.33%; 
@@ -182,64 +362,19 @@
 }
 </css>
 
-<jsData>
-{
-    "items": [{
-        "ttl": "图片标题1",
-        "href": "#",
-        "src": "http://localhost:8000/imgs/11.jpg",
-        "price": "￥10.50"
-    },
-    {
-        "ttl": "图片标题2图片标题2图片标题2",
-        "href": "#",
-        "src": "http://localhost:8000/imgs/11.jpg",
-        "price": "￥10.50"
-    },
-    {
-        "ttl": "图片标题3",
-        "href": "#",
-        "src": "http://localhost:8000/imgs/11.jpg",
-        "price": "￥10.50"
-    },
-    {
-        "ttl": "图片标题4",
-        "href": "#",
-        "src": "http://localhost:8000/imgs/11.jpg",
-        "price": "￥10.50"
-    },
-    {
-        "ttl": "图片标题5",
-        "href": "#",
-        "src": "http://localhost:8000/imgs/11.jpg",
-        "price": "￥10.50"
-    },
-    {
-        "ttl": "图片标题6",
-        "href": "#",
-        "src": "http://localhost:8000/imgs/11.jpg",
-        "price": "￥10.50"
-    }]
-}
-</jsData>
-
-<js>
-
-</js>
-
-<jsMethods>
-
-</jsMethods>
-
-<ES6Methods>
-
-</ES6Methods>
-
-<dataTool>
-
+<!--------><dataTool>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
 </dataTool>
 
-<dataMod>
-
+<!--------><dataMod>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
 </dataMod>
 

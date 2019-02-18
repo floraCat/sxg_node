@@ -88,17 +88,17 @@ function creatOne (_url_in,_url_out) {
 
 	var _objJs = getScript(_code);
 	/*生成 jsData*/
-	var ES6Data2 = '<---ES6Data--->\n'+formatJs(_objJs.ES6Data)+'\n</ES6Data>\n\n';
+	var ES6Data2 = '<!--------><ES6Data>\n'+formatJs(_objJs.ES6Data)+'\n</ES6Data>\n\n';
 	/*生成 jsData*/
-	var jsData2 = '<---jsData--->\n'+formatJs(_objJs.jsData)+'\n</jsData>\n\n';
+	var jsData2 = '<!--------><jsData>\n'+formatJs(_objJs.jsData)+'\n</jsData>\n\n';
 	/*生成 jsData*/
-	var ES6Methods2 = '<---ES6Methods--->\n'+formatJs(_objJs.ES6Methods)+'\n</ES6Methods>\n\n';
+	var ES6Methods2 = '<!--------><ES6Methods>\n'+formatJs(_objJs.ES6Methods)+'\n</ES6Methods>\n\n';
 	/*生成 jsData*/
-	var jsMethods2 = '<---jsMethods--->\n'+formatJs(_objJs.jsMethods)+'\n</jsMethods>\n\n';
+	var jsMethods2 = '<!--------><jsMethods>\n'+formatJs(_objJs.jsMethods)+'\n</jsMethods>\n\n';
 	/*生成 原生js*/
-	var js2 = '<---js--->\n'+formatJs(_objJs.nativeJs)+'\n</js>\n\n';
+	var js2 = '<!--------><js>\n'+formatJs(_objJs.nativeJs)+'\n</js>\n\n';
 	/*生成 angular的js*/
-	var angularJs2 = '<---angularJs--->\n'+formatJs(_objJs.angularJs)+'\n</angularJs>\n\n';
+	var angularJs2 = '<!--------><angularJs>\n'+formatJs(_objJs.angularJs)+'\n</angularJs>\n\n';
 
 
 	/*生成 mounted*/
@@ -108,37 +108,37 @@ function creatOne (_url_in,_url_out) {
 	if (match_mounted) {
 		mounted = formatJs(_code.match(reg_mounted)[1]);
 	}
-	var mounted2 = '<---mounted--->\n'+mounted+'\n</mounted>\n\n'
+	var mounted2 = '<!--------><mounted>\n'+mounted+'\n</mounted>\n\n'
 
 
 	// 插件调用
 	var _objImport = getImport(_code);
-	var jsImport = '<---jsImport--->\n'+_objImport.js+'\n</jsImport>\n\n'
-	var vueImport = '<---vueImport--->\n'+_objImport.vue+'\n</vueImport>\n\n'
-	var angularImport = '<---angularImport--->\n'+_objImport.angular+'\n</angularImport>\n\n'
-	var reactImport = '<---reactImport--->\n'+_objImport.react+'\n</reactImport>\n\n'
+	var jsImport = '<!--------><jsImport>\n'+_objImport.js+'\n</jsImport>\n\n'
+	var vueImport = '<!--------><vueImport>\n'+_objImport.vue+'\n</vueImport>\n\n'
+	var angularImport = '<!--------><angularImport>\n'+_objImport.angular+'\n</angularImport>\n\n'
+	var reactImport = '<!--------><reactImport>\n'+_objImport.react+'\n</reactImport>\n\n'
 
 
 	var _jsData = JSON.parse('{'+_objJs.jsData+'}');
 	var _objHtml = getHtml(_code,_jsData);
 	/*生成 vue*/
-	var vue2 = '<---vue--->\n'+_objHtml.vue+'\n</vue>\n\n';
+	var vue2 = '<!--------><vue>\n'+_objHtml.vue+'\n</vue>\n\n';
 	/*生成 html*/
-	var html2 = '<---html--->\n'+formatHtml(_objHtml.html)+'\n</html>\n\n';
+	var html2 = '<!--------><html>\n'+formatHtml(_objHtml.html)+'\n</html>\n\n';
 	/*生成 html*/
-	var angular2 = '<---angular--->\n'+_objHtml.angular+'\n</angular>\n\n';
+	var angular2 = '<!--------><angular>\n'+_objHtml.angular+'\n</angular>\n\n';
 	/*生成 html*/
-	var react2 = '<---react--->\n'+_objHtml.react+'\n</react>\n\n';
+	var react2 = '<!--------><react>\n'+_objHtml.react+'\n</react>\n\n';
 	
 	/*生成 scss & less*/
 	var reg_scss = /<style.*>([\s\S]*?)<\/style>/;
 	var scss = _code.match(reg_scss)[1].trim();
-	var scss2 = '<---scss--->\n'+scss+'\n</scss>\n\n';
-	var less2 = '<---less--->\n'+scss+'\n</less>\n\n';
+	var scss2 = '<!--------><scss>\n'+scss+'\n</scss>\n\n';
+	var less2 = '<!--------><less>\n'+scss+'\n</less>\n\n';
 
 	/*生成 css*/
 	var css = toCss(scss);
-	var css2 = '<---css--->\n'+formatCss(css).trim()+'\n</css>\n\n';
+	var css2 = '<!--------><css>\n'+formatCss(css).trim()+'\n</css>\n\n';
 
 	/*dataTool*/
 	var reg_tool = /<dataTool.*>([\s\S]*?)<\/dataTool>/;
@@ -148,7 +148,7 @@ function creatOne (_url_in,_url_out) {
 	} else {
 		dataTool = ''
 	}
-	var dataTool2 = '<---dataTool--->\n'+dataTool+'\n</dataTool>\n\n';
+	var dataTool2 = '<!--------><dataTool>\n'+dataTool+'\n</dataTool>\n\n';
 
 	/*dataMod*/
 	var reg_mod = /<dataMod.*>([\s\S]*?)<\/dataMod>/;
@@ -158,7 +158,7 @@ function creatOne (_url_in,_url_out) {
 	} else {
 		dataMod = ''
 	}
-	var dataMod2 = '<---dataMod--->\n'+dataMod+'\n</dataMod>\n\n';
+	var dataMod2 = '<!--------><dataMod>\n'+dataMod+'\n</dataMod>\n\n';
 
 	// return '---未完---'
 

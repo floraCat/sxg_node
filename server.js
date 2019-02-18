@@ -252,4 +252,5 @@ ${js}
 
 app.use(express.static(path.join(__dirname,'./')));
 app.use(express.static(path.join(__dirname,'statics')));
+app.use(express.static(path.join(__dirname,'public')));
 app.listen(app.get('port'));

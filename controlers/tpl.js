@@ -6,8 +6,8 @@ function tplHandle(act,req,res) {
 	var _act = req.query.act;
 	var _modeArr = req.query.mode.split('|');
 	var _tplArr = req.query.tpl.split('|');
-	var _txt = fs.readFileSync('./templates/'+_tplArr.join('/')+'.txt','utf8');
-	var _el = _tplArr[2];
+	var _txt = fs.readFileSync('./txts/'+_tplArr.join('/')+'.txt','utf8');
+	var _el = _tplArr[0]+'/'+_tplArr[1]+'/'+_tplArr[2];
 	var _oldFile = req.query.file
 	if (_act === 'init') {
 		var _rs = $tpl.init(_modeArr,_txt,_el,_oldFile);

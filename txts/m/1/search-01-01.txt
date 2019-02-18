@@ -1,4 +1,48 @@
-<html>
+<!--------><jsData>
+
+</jsData>
+
+<!--------><ES6Data>
+
+</ES6Data>
+
+<!--------><js>
+
+</js>
+
+<!--------><jsMethods>
+
+</jsMethods>
+
+<!--------><ES6Methods>
+
+</ES6Methods>
+
+<!--------><angularJs>
+
+</angularJs>
+
+<!--------><mounted>
+
+</mounted>
+
+<!--------><jsImport>
+
+</jsImport>
+
+<!--------><vueImport>
+
+</vueImport>
+
+<!--------><angularImport>
+
+</angularImport>
+
+<!--------><reactImport>
+
+</reactImport>
+
+<!--------><html>
 <form class="sxg-search">
 	<div class="icon">
 	</div>
@@ -7,14 +51,29 @@
 </form>
 </html>
 
-<vue>
+<!--------><vue>
 <form class="sxg-search">
     <div class="icon"></div>
     <input name="keyword" class="keyword" type="text" placeholder="搜索商品名称" />
 </form>
 </vue>
 
-<scss>
+<!--------><angular>
+<form class="sxg-search">
+    <div class="icon"></div>
+    <input name="keyword" class="keyword" type="text" placeholder="搜索商品名称" />
+</form>
+</angular>
+
+<!--------><react>
+
+return <form className="sxg-search">
+    <div className="icon"></div>
+    <input name="keyword" className="keyword" type="text" placeholder="搜索商品名称" />
+</form>
+</react>
+
+<!--------><scss>
 .sxg-search {
     width: 70%;
     height: .32rem;
@@ -39,7 +98,7 @@
 }
 </scss>
 
-<less>
+<!--------><less>
 .sxg-search {
     width: 70%;
     height: .32rem;
@@ -64,7 +123,7 @@
 }
 </less>
 
-<css>
+<!--------><css>
 .sxg-search {
     width: 70%;
     height: .32rem;
@@ -89,27 +148,19 @@
 }
 </css>
 
-<jsData>
-{}
-</jsData>
-
-<js>
-
-</js>
-
-<jsMethods>
-
-</jsMethods>
-
-<ES6Methods>
-
-</ES6Methods>
-
-<dataTool>
-
+<!--------><dataTool>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
 </dataTool>
 
-<dataMod>
-
+<!--------><dataMod>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
 </dataMod>
 

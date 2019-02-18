@@ -561,9 +561,22 @@ function js_beautify(js_source_text, indent_size, indent_character, indent_level
         last_text = token_text;
     }
 
-    return output.join('');
+    return objToStr(output.join(''));
 
 }
 
+/*-------------------------------------*/
+
+// 对象字符串去掉双引号
+function objToStr (_str) {
+    var _reg = /(\"\w+?\"):\s/g;
+    _str.replace(_reg,function () {
+        var _arg = arguments;
+        _str = _str.replace(_arg[1],_arg[1].substr(1,_arg[1].length-2));
+    })
+    return _str.replace(/"/g,"'");
+}
+
+/*-------------------------------------*/
 
 exports = module.exports = js_beautify;

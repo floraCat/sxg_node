@@ -1,4 +1,195 @@
-<html>
+<!--------><jsData>
+cats: [{
+    ttl: '栏目1',
+    href: '#1',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目2',
+    href: '#2',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目3',
+    href: '#3',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目4',
+    href: '#4',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目5',
+    href: '#5',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目6',
+    href: '#6',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目7',
+    href: '#7',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目8',
+    href: '#8',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目9',
+    href: '#9',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目10',
+    href: '#10',
+    src: 'http://localhost:8000/imgs/11.jpg'
+}]
+</jsData>
+
+<!--------><ES6Data>
+cats: [{
+    ttl: '栏目1',
+    href: '#1',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目2',
+    href: '#2',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目3',
+    href: '#3',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目4',
+    href: '#4',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目5',
+    href: '#5',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目6',
+    href: '#6',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目7',
+    href: '#7',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目8',
+    href: '#8',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目9',
+    href: '#9',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目10',
+    href: '#10',
+    src: 'http://localhost:8000/imgs/11.jpg'
+}]
+</ES6Data>
+
+<!--------><js>
+
+</js>
+
+<!--------><jsMethods>
+
+</jsMethods>
+
+<!--------><ES6Methods>
+
+</ES6Methods>
+
+<!--------><angularJs>
+const cats = [{
+    ttl: '栏目1',
+    href: '#1',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目2',
+    href: '#2',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目3',
+    href: '#3',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目4',
+    href: '#4',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目5',
+    href: '#5',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目6',
+    href: '#6',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目7',
+    href: '#7',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目8',
+    href: '#8',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目9',
+    href: '#9',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '栏目10',
+    href: '#10',
+    src: 'http://localhost:8000/imgs/11.jpg'
+}];
+</angularJs>
+
+<!--------><mounted>
+
+</mounted>
+
+<!--------><jsImport>
+
+</jsImport>
+
+<!--------><vueImport>
+
+</vueImport>
+
+<!--------><angularImport>
+
+</angularImport>
+
+<!--------><reactImport>
+
+</reactImport>
+
+<!--------><html>
 <ul class="sxg-cat">
 	<li>
 		<a href="#1">
@@ -83,7 +274,7 @@
 </ul>
 </html>
 
-<vue>
+<!--------><vue>
 <ul class="sxg-cat">
     <li v-for="(cat,index) in cats" v-bind:key="index">
         <a :href="cat.href">
@@ -94,7 +285,32 @@
 </ul>
 </vue>
 
-<scss>
+<!--------><angular>
+<ul class="sxg-cat">
+    <li  *ngFor="let (cat,ofdex) of cats" v-bind:key="index">
+        <a href="{{cat.href}}">
+            <img href="{{cat.href}}" href="{{cat.href}}" />
+            <h4>{{cat.ttl}}</h4>
+        </a>
+    </li>
+</ul>
+</angular>
+
+<!--------><react>
+const cats = [{"ttl":"栏目1","href":"#1","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"栏目2","href":"#2","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"栏目3","href":"#3","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"栏目4","href":"#4","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"栏目5","href":"#5","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"栏目6","href":"#6","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"栏目7","href":"#7","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"栏目8","href":"#8","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"栏目9","href":"#9","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"栏目10","href":"#10","src":"http://localhost:8000/imgs/11.jpg"}];
+const cats.map(( =>
+<li v-bind:key="index">
+        <a href="{cat.href}">
+            <img href="{cat.href}" href="{cat.href}" />
+            <h4>{cat.ttl}</h4>
+        </a>
+    </li>
+return <ul className="sxg-cat">
+    {_cats}
+</ul>
+</react>
+
+<!--------><scss>
 .sxg-cat {
     overflow: hidden;
     li {
@@ -120,7 +336,7 @@
 }
 </scss>
 
-<less>
+<!--------><less>
 .sxg-cat {
     overflow: hidden;
     li {
@@ -146,7 +362,7 @@
 }
 </less>
 
-<css>
+<!--------><css>
 .sxg-cat {
     overflow: hidden; 
 }
@@ -172,78 +388,19 @@
 }
 </css>
 
-<jsData>
-{
-    "cats": [{
-        "ttl": "栏目1",
-        "href": "#1",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "栏目2",
-        "href": "#2",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "栏目3",
-        "href": "#3",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "栏目4",
-        "href": "#4",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "栏目5",
-        "href": "#5",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "栏目6",
-        "href": "#6",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "栏目7",
-        "href": "#7",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "栏目8",
-        "href": "#8",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "栏目9",
-        "href": "#9",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    },
-    {
-        "ttl": "栏目10",
-        "href": "#10",
-        "src": "http://localhost:8000/imgs/11.jpg"
-    }]
-}
-</jsData>
-
-<js>
-
-</js>
-
-<jsMethods>
-
-</jsMethods>
-
-<ES6Methods>
-
-</ES6Methods>
-
-<dataTool>
-
+<!--------><dataTool>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
 </dataTool>
 
-<dataMod>
-
+<!--------><dataMod>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
 </dataMod>
 

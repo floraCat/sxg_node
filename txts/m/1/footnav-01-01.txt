@@ -1,4 +1,156 @@
-<html>
+<!--------><jsData>
+cols: [{
+    id: 1,
+    name: 'index',
+    ttl: '首页',
+    on: true,
+    href: '#',
+    icon: 'http://localhost:8000/imgs/circle.png',
+    iconOn: 'http://localhost:8000/imgs/circle_on.png'
+},
+{
+    id: 2,
+    name: 'cat',
+    ttl: '分类',
+    on: false,
+    href: '#',
+    icon: 'http://localhost:8000/imgs/circle.png',
+    iconOn: 'http://localhost:8000/imgs/circle_on.png'
+},
+{
+    id: 3,
+    name: 'cart',
+    ttl: '购物车',
+    on: false,
+    href: '#',
+    icon: 'http://localhost:8000/imgs/circle.png',
+    iconOn: 'http://localhost:8000/imgs/circle_on.png'
+},
+{
+    id: 4,
+    name: 'center',
+    ttl: '个人中心',
+    on: false,
+    href: '#',
+    icon: 'http://localhost:8000/imgs/circle.png',
+    iconOn: 'http://localhost:8000/imgs/circle_on.png'
+}],
+cart_nums: 1
+</jsData>
+
+<!--------><ES6Data>
+cols: [{
+    id: 1,
+    name: 'index',
+    ttl: '首页',
+    on: true,
+    href: '#',
+    icon: 'http://localhost:8000/imgs/circle.png',
+    iconOn: 'http://localhost:8000/imgs/circle_on.png'
+},
+{
+    id: 2,
+    name: 'cat',
+    ttl: '分类',
+    on: false,
+    href: '#',
+    icon: 'http://localhost:8000/imgs/circle.png',
+    iconOn: 'http://localhost:8000/imgs/circle_on.png'
+},
+{
+    id: 3,
+    name: 'cart',
+    ttl: '购物车',
+    on: false,
+    href: '#',
+    icon: 'http://localhost:8000/imgs/circle.png',
+    iconOn: 'http://localhost:8000/imgs/circle_on.png'
+},
+{
+    id: 4,
+    name: 'center',
+    ttl: '个人中心',
+    on: false,
+    href: '#',
+    icon: 'http://localhost:8000/imgs/circle.png',
+    iconOn: 'http://localhost:8000/imgs/circle_on.png'
+}],
+cart_nums: 1
+</ES6Data>
+
+<!--------><js>
+
+</js>
+
+<!--------><jsMethods>
+
+</jsMethods>
+
+<!--------><ES6Methods>
+
+</ES6Methods>
+
+<!--------><angularJs>
+const cols = [{
+    id: 1,
+    name: 'index',
+    ttl: '首页',
+    on: true,
+    href: '#',
+    icon: 'http://localhost:8000/imgs/circle.png',
+    iconOn: 'http://localhost:8000/imgs/circle_on.png'
+},
+{
+    id: 2,
+    name: 'cat',
+    ttl: '分类',
+    on: false,
+    href: '#',
+    icon: 'http://localhost:8000/imgs/circle.png',
+    iconOn: 'http://localhost:8000/imgs/circle_on.png'
+},
+{
+    id: 3,
+    name: 'cart',
+    ttl: '购物车',
+    on: false,
+    href: '#',
+    icon: 'http://localhost:8000/imgs/circle.png',
+    iconOn: 'http://localhost:8000/imgs/circle_on.png'
+},
+{
+    id: 4,
+    name: 'center',
+    ttl: '个人中心',
+    on: false,
+    href: '#',
+    icon: 'http://localhost:8000/imgs/circle.png',
+    iconOn: 'http://localhost:8000/imgs/circle_on.png'
+}];
+const cart_nums = 1;
+</angularJs>
+
+<!--------><mounted>
+
+</mounted>
+
+<!--------><jsImport>
+
+</jsImport>
+
+<!--------><vueImport>
+
+</vueImport>
+
+<!--------><angularImport>
+
+</angularImport>
+
+<!--------><reactImport>
+
+</reactImport>
+
+<!--------><html>
 <footer class="sxg-footnav">
 	<li class="index on">
 		<a href="#">
@@ -12,6 +164,9 @@
 				首页
 			</p>
 		</a>
+		<em v-if="'cart' === index && 1" class="num">
+			1
+		</em>
 	</li>
 	<li class="[cat,{on: false}]">
 		<a href="#">
@@ -25,6 +180,9 @@
 				分类
 			</p>
 		</a>
+		<em v-if="'cart' === cat && 1" class="num">
+			1
+		</em>
 	</li>
 	<li class="[cart,{on: false}]">
 		<a href="#">
@@ -38,7 +196,7 @@
 				购物车
 			</p>
 		</a>
-		<em class="num">
+		<em v-if="'cart' === cart && 1" class="num">
 			1
 		</em>
 	</li>
@@ -54,11 +212,14 @@
 				个人中心
 			</p>
 		</a>
+		<em v-if="'cart' === center && 1" class="num">
+			1
+		</em>
 	</li>
 </footer>
 </html>
 
-<vue>
+<!--------><vue>
 <footer class="sxg-footnav">
     <li v-for="col in cols" :class="[col.name,{on: col.on}]" v-bind:key="col.id">
         <a :href="col.href">
@@ -71,7 +232,37 @@
 </footer>
 </vue>
 
-<scss>
+<!--------><angular>
+<footer class="sxg-footnav">
+    <li  *ngFor="let col of cols" href="{{col.href}}" v-bind:key="col.id">
+        <a href="{{col.href}}">
+            <span class="icon" v-show="!col.on"><img href="{{col.href}}" /></span>
+            <span class="iconOn" v-show="col.on"><img href="{{col.href}}" /></span>
+            <p>{{col.ttl}}</p>
+        </a>
+        <em v-if="'cart' === col.name && cart_nums" class="num">{{cart_nums}}</em>
+    </li>
+</footer>
+</angular>
+
+<!--------><react>
+const cols = [{"id":1,"name":"index","ttl":"首页","on":true,"href":"#","icon":"http://localhost:8000/imgs/circle.png","iconOn":"http://localhost:8000/imgs/circle_on.png"},{"id":2,"name":"cat","ttl":"分类","on":false,"href":"#","icon":"http://localhost:8000/imgs/circle.png","iconOn":"http://localhost:8000/imgs/circle_on.png"},{"id":3,"name":"cart","ttl":"购物车","on":false,"href":"#","icon":"http://localhost:8000/imgs/circle.png","iconOn":"http://localhost:8000/imgs/circle_on.png"},{"id":4,"name":"center","ttl":"个人中心","on":false,"href":"#","icon":"http://localhost:8000/imgs/circle.png","iconOn":"http://localhost:8000/imgs/circle_on.png"}];
+const cart_nums = 1;
+const cols.map(( =>
+<li href="{col.href}" v-bind:key="col.id">
+        <a href="{col.href}">
+            <span className="icon" v-show="!col.on"><img href="{col.href}" /></span>
+            <span className="iconOn" v-show="col.on"><img href="{col.href}" /></span>
+            <p>{col.ttl}</p>
+        </a>
+        <em v-if="'cart' === col.name && cart_nums" className="num">{cart_nums}</em>
+    </li>
+return <footer className="sxg-footnav">
+    {_cols}
+</footer>
+</react>
+
+<!--------><scss>
 .sxg-footnav {
     position: fixed;
     bottom: 0;
@@ -128,7 +319,7 @@
 }
 </scss>
 
-<less>
+<!--------><less>
 .sxg-footnav {
     position: fixed;
     bottom: 0;
@@ -185,7 +376,7 @@
 }
 </less>
 
-<css>
+<!--------><css>
 .sxg-footnav {
     position: fixed;
     bottom: 0;
@@ -242,65 +433,19 @@
 }
 </css>
 
-<jsData>
-{
-    "cols": [{
-        "id": "1",
-        "name": "index",
-        "ttl": "首页",
-        "on": "true",
-        "href": "#",
-        "icon": "http://localhost:8000/imgs/circle.png",
-        "iconOn": "http://localhost:8000/imgs/circle_on.png"
-    },
-    {
-        "id": "2",
-        "name": "cat",
-        "ttl": "分类",
-        "on": "false",
-        "href": "#",
-        "icon": "http://localhost:8000/imgs/circle.png",
-        "iconOn": "http://localhost:8000/imgs/circle_on.png"
-    },
-    {
-        "id": "3",
-        "name": "cart",
-        "ttl": "购物车",
-        "on": "false",
-        "href": "#",
-        "icon": "http://localhost:8000/imgs/circle.png",
-        "iconOn": "http://localhost:8000/imgs/circle_on.png"
-    },
-    {
-        "id": "4",
-        "name": "center",
-        "ttl": "个人中心",
-        "on": "false",
-        "href": "#",
-        "icon": "http://localhost:8000/imgs/circle.png",
-        "iconOn": "http://localhost:8000/imgs/circle_on.png"
-    }],
-    "cart_nums": 1
-}
-</jsData>
-
-<js>
-
-</js>
-
-<jsMethods>
-
-</jsMethods>
-
-<ES6Methods>
-
-</ES6Methods>
-
-<dataTool>
-
+<!--------><dataTool>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
 </dataTool>
 
-<dataMod>
-
+<!--------><dataMod>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
 </dataMod>
 

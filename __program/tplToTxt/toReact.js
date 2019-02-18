@@ -47,7 +47,7 @@ function toReact (_Vue,_jsData) {
 	// 匹配v-for整个标签(此处为整个li元素)
 	var reg_vFor = /<(\w+)?\s+v-for[\s\S]*?<\/(\1)>/g;
 	var v_for = _Vue.match(reg_vFor);
-	if (v_for.length > 0) {
+	if (v_for && v_for.length > 0) {
 		for (var x = 0; x < v_for.length; x ++) {
 			var reg_data = /\"(.+)\s+in\s+(\w+)/;
 			var for_item = v_for[x].match(reg_data)[1];

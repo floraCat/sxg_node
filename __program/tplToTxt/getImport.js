@@ -17,7 +17,7 @@ function getImportJs (_Code) {
 function getImportVue (_Code) {
 	var _reg = /import[\s\S]*?;/g;
 	var _rs = _Code.match(_reg);
-	return _rs.join('\n');
+	return _rs && _rs.join('\n') || '';
 }
 
 function getImportAngular (_Code) {

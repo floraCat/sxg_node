@@ -4,6 +4,7 @@
 <title>效果展示</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+<script src="http://localhost:8000/js/rem.js"></script>
 <link rel="stylesheet" href="http://localhost:8000/style/reset.css" />
 <style>
 {{css}}
@@ -18,7 +19,9 @@
 new Vue({
 	el: '.sxg-{{el}}',
 	data: function () {
-		return {{jsData}}
+		return {
+			{{jsData}}
+		}
 	},
 	methods: {
 		{{jsMethods}}
