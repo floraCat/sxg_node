@@ -130,28 +130,28 @@ fun2() {
 </ES6Methods>
 
 <!--------><angularJs>
-var test1 = {
+test1 = {
     a: 111,
     b: '222'
 };
-var cls = {
+cls = {
     on: true,
     on2: false
 };
-var test2 = 22222;
-var test3 = true;
-var test4 = {
+test2 = 22222;
+test3 = true;
+test4 = {
     test5: {
         test6: 66666
     }
 };
-var cols = [{
+cols = [{
     ttl: '栏目1'
 },
 {
     ttl: '栏目2'
 }];
-var cats = [{
+cats = [{
     ttl: '分类1',
     href: '#',
     src: 'http://localhost:8000/imgs/11.jpg'
@@ -192,28 +192,28 @@ fun2() : void {
 </angularJs>
 
 <!--------><angularES6>
-const test1 = {
+test1 = {
     a: 111,
     b: '222'
 };
-const cls = {
+cls = {
     on: true,
     on2: false
 };
-const test2 = 22222;
-const test3 = true;
-const test4 = {
+test2 = 22222;
+test3 = true;
+test4 = {
     test5: {
         test6: 66666
     }
 };
-const cols = [{
+cols = [{
     ttl: '栏目1'
 },
 {
     ttl: '栏目2'
 }];
-const cats = [{
+cats = [{
     ttl: '分类1',
     href: '#',
     src: 'http://localhost:8000/imgs/11.jpg'
@@ -393,9 +393,9 @@ import 'swiper/dist/css/swiper.css';
 
 <!--------><angular>
 <div class="sxg-_test">
-    <div @click="fun1(test1.a)">{{test1.b}}</div>
-    <div v-if="'222' === test1.b && test3">has-v-if</div>
-    <div v-if="test3" @click="fun2()">has-v-if-2</div>
+    <div (click)="fun1(test1.a)">{{test1.b}}</div>
+    <div *ngIf="'222' === test1.b && test3">has-v-if</div>
+    <div *ngIf="test3" (click)="fun2()">has-v-if-2</div>
     <div href="{{cat.href}}">{{test1.a}}</div>
     <li  *ngFor="let cat of cats">
         <a class="img" href="{{cat.href}}">

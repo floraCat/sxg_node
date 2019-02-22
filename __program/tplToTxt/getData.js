@@ -25,19 +25,14 @@ function getAngularES6Data (_Code) {
 	var _jsData = JSON.parse("{"+getjsData(_Code)+"}");
 	var _arr = [];
 	for (var key in _jsData) {
-		_arr.push('const '+key+' = '+JSON.stringify(_jsData[key])+';');
+		_arr.push(key+' = '+JSON.stringify(_jsData[key])+';');
 	}
 	return _arr.join('\n')
 }
 
 
 function getAngularJsData (_Code) {
-	var _jsData = JSON.parse("{"+getjsData(_Code)+"}");
-	var _arr = [];
-	for (var key in _jsData) {
-		_arr.push('var '+key+' = '+JSON.stringify(_jsData[key])+';');
-	}
-	return _arr.join('\n')
+	return getAngularES6Data(_Code);
 }
 
 

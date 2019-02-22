@@ -18,6 +18,14 @@ function toReact (_Vue,_jsData) {
 		let _arg = arguments
 		return _Vue.replace(_arg[0],'{'+_arg[1]+'}')
 	});
+
+	// // 匹配 v-if
+	// var reg_vIf = /v-if(?=[=])/g;
+	// _NG = _NG.replace(reg_vIf, "*ngIf");
+
+	// // 匹配 事件监听
+	// var reg_event = /(?<=\s)@(\w+?)(?=[=]\"\w+\([\s\S]*?\)\")/g;
+	// _NG = _NG.replace(reg_event, "($1)");
 	
 		
 	// 匹配冒号处理

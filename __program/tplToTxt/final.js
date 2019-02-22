@@ -6,6 +6,7 @@
 - 转 react
 
 - 测试import是否能引入外链
+- v-for的index未考虑
 
 */
 

@@ -3,7 +3,7 @@
  * 重置样式
  */
 
-body,input,button,select,textarea{ font:.14rem/.24rem "Microsoft Yahei",arial,Tahoma,sans-serif; color:#222;}
+body,input,button,select,textarea{ font:.12rem/.24rem "Microsoft Yahei",arial,Tahoma,sans-serif; color:#222;}
 body,h1,h2,h3,h4,h5,h6,p,ul,li,ol,dl,dt,dd,form,input,button,textarea,select,figure{ padding:0; margin:0;}
 *{ box-sizing:border-box; -webkit-box-sizing:border-box; -o-box-sizing:border-box; -moz-box-sizing:border-box;}
 ul,ol,li{ list-style-type:none;}

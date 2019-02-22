@@ -20,6 +20,14 @@ function toAngular (_Vue,_jsData) {
 		});
 	}();
 
+	// 匹配 v-if
+	var reg_vIf = /v-if(?=[=])/g;
+	_NG = _NG.replace(reg_vIf, "*ngIf");
+
+	// 匹配 事件监听
+	var reg_event = /(?<=\s)@(\w+?)(?=[=]\"\w+\([\s\S]*?\)\")/g;
+	_NG = _NG.replace(reg_event, "($1)");
+
 	// 匹配冒号处理
 	var reg_colon = /\s:([\s\S]*?\"[\s\S]*?\")/g;
 	var colon = _NG.match(reg_colon);

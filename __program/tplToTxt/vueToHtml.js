@@ -1,13 +1,7 @@
 /*
 ** vue模板转静态html
 注意：
-	- index未考虑
 	- 模板尽量不用v-show
-	- 多个v-for的情况
-	- jsData 对象多层嵌套的情况
-	- jsData匹配有问题
-	- jsMouted的情况没考虑
-	- jsMethods还有问题
 	- ...
 */
 
