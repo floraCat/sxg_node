@@ -5,7 +5,6 @@
 - 转 angular
 - 转 react
 
-- txt里的对象去掉双引号
 - 测试import是否能引入外链
 
 */
@@ -14,15 +13,16 @@
 
 var fs = require("fs");
 
-var getScript  = require("./getScript.js");
+var getData  = require("./getData.js");
+var getMethods  = require("./getMethods.js");
 var getHtml  = require("./getHtml.js");
 var getImport  = require("./getImport.js");
+
+var toCss  = require("./toCss.js");
 
 var formatHtml  = require("./formatHtml.js");
 var formatJs  = require("./formatJs.js");
 var formatCss  = require("./formatCss.js");
-
-var toCss  = require("./toCss.js");
 
 
 
@@ -86,19 +86,44 @@ function creatOne (_url_in,_url_out) {
 
 	var _code = fs.readFileSync(_url_in,'utf8');
 
-	var _objJs = getScript(_code);
+
+	var _objData = getData(_code);
+	/*生成 ES6Data*/
+	var ES6Data2 = '<!--------><ES6Data>\n'+formatJs(_objData.ES6Data)+'\n</ES6Data>\n\n';
 	/*生成 jsData*/
-	var ES6Data2 = '<!--------><ES6Data>\n'+formatJs(_objJs.ES6Data)+'\n</ES6Data>\n\n';
-	/*生成 jsData*/
-	var jsData2 = '<!--------><jsData>\n'+formatJs(_objJs.jsData)+'\n</jsData>\n\n';
-	/*生成 jsData*/
-	var ES6Methods2 = '<!--------><ES6Methods>\n'+formatJs(_objJs.ES6Methods)+'\n</ES6Methods>\n\n';
-	/*生成 jsData*/
-	var jsMethods2 = '<!--------><jsMethods>\n'+formatJs(_objJs.jsMethods)+'\n</jsMethods>\n\n';
+	var jsData2 = '<!--------><jsData>\n'+formatJs(_objData.jsData)+'\n</jsData>\n\n';
+	/*生成 angularJsData*/
+	var angularJsData = formatJs(_objData.angularJsData);
+	/*生成 angularES6Data*/
+	var angularES6Data = formatJs(_objData.angularES6Data);
+	/*生成 reactJsData*/
+	var reactJsData = formatJs(_objData.reactJsData);
+	/*生成 reactES6Data*/
+	var reactES6Data = formatJs(_objData.reactES6Data);
+
+
+	var _objMethods = getMethods(_code);
+	/*生成 ES6Methods*/
+	var ES6Methods2 = '<!--------><ES6Methods>\n'+formatJs(_objMethods.ES6Methods)+'\n</ES6Methods>\n\n';
+	/*生成 jsMethods*/
+	var jsMethods2 = '<!--------><jsMethods>\n'+formatJs(_objMethods.jsMethods)+'\n</jsMethods>\n\n';
+	/*生成 ES6*/
+	var ES6_2 = '<!--------><ES6>\n'+formatJs(_objMethods.ES6)+'\n</ES6>\n\n';
 	/*生成 原生js*/
-	var js2 = '<!--------><js>\n'+formatJs(_objJs.nativeJs)+'\n</js>\n\n';
-	/*生成 angular的js*/
-	var angularJs2 = '<!--------><angularJs>\n'+formatJs(_objJs.angularJs)+'\n</angularJs>\n\n';
+	var js2 = '<!--------><js>\n'+formatJs(_objMethods.nativeJs)+'\n</js>\n\n';
+	/*生成 angularJsMethods*/
+	var angularJsMethods = formatJs(_objMethods.angularJsMethods);
+	/*生成 angularES6Methods*/
+	var angularES6Methods = formatJs(_objMethods.angularES6Methods);
+	/*生成 reactJsMethods*/
+	var reactJsMethods = formatJs(_objMethods.reactJsMethods);
+	/*生成 reactES6Methods*/
+	var reactES6Methods = formatJs(_objMethods.reactES6Methods);
+
+	/*生成 angularJs*/
+	var angularJs2 = '<!--------><angularJs>\n'+angularJsData+'\n'+angularJsMethods+'\n</angularJs>\n\n';
+	/*生成 angularES6*/
+	var angularES6_2 = '<!--------><angularES6>\n'+angularES6Data+'\n'+angularES6Methods+'\n</angularES6>\n\n';
 
 
 	/*生成 mounted*/
@@ -111,7 +136,7 @@ function creatOne (_url_in,_url_out) {
 	var mounted2 = '<!--------><mounted>\n'+mounted+'\n</mounted>\n\n'
 
 
-	// 插件调用
+	/*生成 import*/
 	var _objImport = getImport(_code);
 	var jsImport = '<!--------><jsImport>\n'+_objImport.js+'\n</jsImport>\n\n'
 	var vueImport = '<!--------><vueImport>\n'+_objImport.vue+'\n</vueImport>\n\n'
@@ -119,16 +144,18 @@ function creatOne (_url_in,_url_out) {
 	var reactImport = '<!--------><reactImport>\n'+_objImport.react+'\n</reactImport>\n\n'
 
 
-	var _jsData = JSON.parse('{'+_objJs.jsData+'}');
+	var _jsData = JSON.parse('{'+_objData.jsData+'}');
 	var _objHtml = getHtml(_code,_jsData);
 	/*生成 vue*/
 	var vue2 = '<!--------><vue>\n'+_objHtml.vue+'\n</vue>\n\n';
 	/*生成 html*/
 	var html2 = '<!--------><html>\n'+formatHtml(_objHtml.html)+'\n</html>\n\n';
-	/*生成 html*/
+	/*生成 angular*/
 	var angular2 = '<!--------><angular>\n'+_objHtml.angular+'\n</angular>\n\n';
-	/*生成 html*/
-	var react2 = '<!--------><react>\n'+_objHtml.react+'\n</react>\n\n';
+	/*生成 reactJS*/
+	var reactJs2 = '<!--------><reactJs>\n'+reactJsData+'\n'+_objHtml.react+'\n'+reactJsMethods+'\n</reactJs>\n\n';
+	/*生成 reactES6*/
+	var reactES6_2 = '<!--------><reactES6>\n'+reactES6Data+'\n'+_objHtml.react+'\n'+reactES6Methods+'\n</reactES6>\n\n';
 	
 	/*生成 scss & less*/
 	var reg_scss = /<style.*>([\s\S]*?)<\/style>/;
@@ -164,9 +191,10 @@ function creatOne (_url_in,_url_out) {
 
 	/*最后整合生成*/
 	var _result = 
-	jsData2+ES6Data2+js2+jsMethods2+ES6Methods2+angularJs2+
+	jsData2+ES6Data2+jsMethods2+ES6Methods2+angularJs2+angularES6_2+
+	ES6_2+js2+
 	mounted2+jsImport+vueImport+angularImport+reactImport+
-	html2+vue2+angular2+react2+
+	html2+vue2+angular2+reactJs2+reactES6_2+
 	scss2+less2+css2+
 	dataTool2+dataMod2;
 	fs.writeFile(_url_out,_result,function(err){

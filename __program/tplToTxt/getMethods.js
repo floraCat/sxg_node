@@ -1,31 +1,5 @@
 var babel = require("babel-core");
 
-function getES6Data (_Code) {
-	var _rs = ''
-	// 匹配脚本中的djsData字符串
-	var reg_script = /data[\s\S]*?\(\)[\s\S]*?return[\s\S]*?{([\s\S]*?)};/
-	// if (_Code.indexOf('mounted ()')>=0) {
-	// 	var reg_script = /data[\s\S]*?\(\)[\s\S]*?{[\s\S]*?return[\s\S]*?{([\s\S]*)};[\s\S]*?},[\s\S]*?mounted/;
-	// } else {
-		// var reg_script = /data[\s\S]*?\(\)[\s\S]*?{[\s\S]*?return[\s\S]*?({[\s\S]*};)[\s\S]*?},[\s\S]*?methods:/;
-	// }
-	var _str = _Code.match(reg_script)
-	if (_str) {
-		_rs = _str[1]
-		_rs = _rs.replace(/\'/g,'"');
-		_rs = strToObj(_rs);
-	} else {
-		_rs = ''
-	}
-	
-	return _rs;
-}
-
-
-function getjsData (_Code) {
-	return getES6Data(_Code);
-}
-
 
 function getES6Methods (_Code) {
 	var reg_methods = /methods:.*?({[\s\S]*?)<\/script>/;
@@ -55,6 +29,11 @@ function getjsMethods (_Code) {
 }
 
 
+function getES6(_Code) {
+	return getjsMethods(_Code);
+}
+
+
 function getNativeJs(_Code) {
 	var _rs = '';
 	var _ES6 = getES6Methods(_Code);
@@ -72,26 +51,52 @@ function getNativeJs(_Code) {
 	return _rs;
 }
 
-function getAngularJs (_Code) {
-	var _jsData = JSON.parse("{"+getjsData(_Code)+"}");
-	var _arr = [];
-	for (var key in _jsData) {
-		_arr.push('const '+key+' = '+JSON.stringify(_jsData[key])+';');
+
+function getAngularES6Methods (_Code) {
+	var _ES6 = getES6Methods(_Code);
+	if (_ES6) {
+		var _reg = /(?<=\w*?\s*?\([\s\S]*?\))\s(?={)/g;
+		_ES6 = _ES6.replace(_reg, ': void ');
 	}
-	return _arr.join('\n')
+	return _ES6;
+}
+
+
+function getAngularJsMethods (_Code) {
+	var _js = getES6Methods(_Code);
+	if (_js) {
+		_js = ES6ToJs(_js);
+		var _funs = []
+		for (var x = 0; x < _js.length; x ++) {
+			_funs.push(_js[x].split(': function')[1]);
+		}
+		_js = _funs.join('\n');
+		var _reg = /(?<=\w*?\s*?\([\s\S]*?\))\s(?={)/g;
+		_js = _js.replace(_reg, ': void ');
+	}
+	return _js;
+}
+
+
+function getReactES6Methods (_Code) {
+	return getES6Methods(_Code);
+}
+
+
+function getReactJsMethods (_Code) {
+	var _js = getES6Methods(_Code);
+	if (_js) {
+		_js = ES6ToJs(_js);
+		var _funs = []
+		for (var x = 0; x < _js.length; x ++) {
+			_funs.push(_js[x].split(': function')[1]);
+		}
+		_js = _funs.join('\n');
+	}
+	return _js;
 }
 
 /*-------------------------------------------------------------*/
-
-// 转成带双引号的对象字符串
-function strToObj (_str) {
-	var _reg = /(\w+?):\s/g;
-	_str.replace(_reg,function () {
-		var _arg = arguments;
-		_str = _str.replace(eval("/(?<![\"])"+_arg[1]+"(?=:)/"),'"'+_arg[1]+'"');
-	})
-	return _str;
-}
 
 // ES6转原生
 function ES6ToJs (ES6) {
@@ -107,19 +112,22 @@ function ES6ToJs (ES6) {
 	}
 	return _arr;
 }
+
 /*-------------------------------------------------------------*/
 
-function getScript (_Code) {
+function getMethods (_Code) {
 	return {
-		ES6Data: getES6Data(_Code),
-		jsData: getjsData(_Code),
 		ES6Methods: getES6Methods(_Code),
 		jsMethods: getjsMethods(_Code),
+		ES6: getES6(_Code),
 		nativeJs: getNativeJs(_Code),
-		angularJs: getAngularJs(_Code),
+		angularJsMethods: getAngularJsMethods(_Code),
+		angularES6Methods: getAngularES6Methods(_Code),
+		reactJsMethods: getReactJsMethods(_Code),
+		reactES6Methods: getReactES6Methods(_Code)
 	}
 }
 
 
-exports = module.exports = getScript;
+exports = module.exports = getMethods;
 

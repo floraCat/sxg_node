@@ -106,35 +106,92 @@ cats: [{
 }]
 </ES6Data>
 
-<!--------><js>
-function fun1() {
-    console.log(11111);
-}
-function fun2() {
-    console.log(22222);
-}
-</js>
-
 <!--------><jsMethods>
 fun1: function fun1() {
-    console.log(11111);
+    var a = 1111;
+    console.log(a);
 }
 
 fun2: function fun2() {
-    console.log(22222);
+    var b = 2222;
+    console.log(b);
 }
 </jsMethods>
 
 <!--------><ES6Methods>
 fun1() {
-    console.log(11111);
+    let a = 1111;
+    console.log(a);
 },
 fun2() {
-    console.log(22222);
+    const b = 2222;
+    console.log(b);
 }
 </ES6Methods>
 
 <!--------><angularJs>
+var test1 = {
+    a: 111,
+    b: '222'
+};
+var cls = {
+    on: true,
+    on2: false
+};
+var test2 = 22222;
+var test3 = true;
+var test4 = {
+    test5: {
+        test6: 66666
+    }
+};
+var cols = [{
+    ttl: '栏目1'
+},
+{
+    ttl: '栏目2'
+}];
+var cats = [{
+    ttl: '分类1',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类2',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类3',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类4',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类5',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类6',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+}];
+fun1() : void {
+    var a = 1111;
+    console.log(a);
+}
+fun2() : void {
+    var b = 2222;
+    console.log(b);
+}
+</angularJs>
+
+<!--------><angularES6>
 const test1 = {
     a: 111,
     b: '222'
@@ -186,7 +243,38 @@ const cats = [{
     href: '#',
     src: 'http://localhost:8000/imgs/11.jpg'
 }];
-</angularJs>
+fun1() : void {
+    let a = 1111;
+    console.log(a);
+},
+fun2() : void {
+    const b = 2222;
+    console.log(b);
+}
+</angularES6>
+
+<!--------><ES6>
+fun1: function fun1() {
+    var a = 1111;
+    console.log(a);
+}
+
+fun2: function fun2() {
+    var b = 2222;
+    console.log(b);
+}
+</ES6>
+
+<!--------><js>
+function fun1() {
+    var a = 1111;
+    console.log(a);
+}
+function fun2() {
+    var b = 2222;
+    console.log(b);
+}
+</js>
 
 <!--------><mounted>
 console.log('mounted');
@@ -321,14 +409,58 @@ import 'swiper/dist/css/swiper.css';
 </div>
 </angular>
 
-<!--------><react>
-const test1 = {"a":111,"b":"222"};
-const cls = {"on":true,"on2":false};
-const test2 = 22222;
-const test3 = true;
-const test4 = {"test5":{"test6":66666}};
-const cols = [{"ttl":"栏目1"},{"ttl":"栏目2"}];
-const cats = [{"ttl":"分类1","href":"#","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"分类2","href":"#","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"分类3","href":"#","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"分类4","href":"#","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"分类5","href":"#","src":"http://localhost:8000/imgs/11.jpg"},{"ttl":"分类6","href":"#","src":"http://localhost:8000/imgs/11.jpg"}];
+<!--------><reactJs>
+var test1 = {
+    a: 111,
+    b: '222'
+};
+var cls = {
+    on: true,
+    on2: false
+};
+var test2 = 22222;
+var test3 = true;
+var test4 = {
+    test5: {
+        test6: 66666
+    }
+};
+var cols = [{
+    ttl: '栏目1'
+},
+{
+    ttl: '栏目2'
+}];
+var cats = [{
+    ttl: '分类1',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类2',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类3',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类4',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类5',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类6',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+}];
 const cats.map(( =>
 <li>
         <a className="img" href="{cat.href}">
@@ -348,7 +480,96 @@ return <div className="sxg-_test">
         {_cols}
     </p>
 </div>
-</react>
+fun1() {
+    var a = 1111;
+    console.log(a);
+}
+fun2() {
+    var b = 2222;
+    console.log(b);
+}
+</reactJs>
+
+<!--------><reactES6>
+const test1 = {
+    a: 111,
+    b: '222'
+};
+const cls = {
+    on: true,
+    on2: false
+};
+const test2 = 22222;
+const test3 = true;
+const test4 = {
+    test5: {
+        test6: 66666
+    }
+};
+const cols = [{
+    ttl: '栏目1'
+},
+{
+    ttl: '栏目2'
+}];
+const cats = [{
+    ttl: '分类1',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类2',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类3',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类4',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类5',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+},
+{
+    ttl: '分类6',
+    href: '#',
+    src: 'http://localhost:8000/imgs/11.jpg'
+}];
+const cats.map(( =>
+<li>
+        <a className="img" href="{cat.href}">
+            <img href="{cat.href}" href="{cat.href}" />
+            <h4>{cat.ttl}</h4>
+        </a>
+    </li>
+const cols.map(( =>
+<h4>{col.ttl}</h4>
+return <div className="sxg-_test">
+    <div @click="fun1(test1.a)">{test1.b}</div>
+    <div v-if="'222' === test1.b && test3">has-v-if</div>
+    <div v-if="test3" @click="fun2()">has-v-if-2</div>
+    <div href="{cat.href}">{{test1.a}}</div>
+    {_cats}
+    <p>
+        {_cols}
+    </p>
+</div>
+fun1() {
+    let a = 1111;
+    console.log(a);
+},
+fun2() {
+    const b = 2222;
+    console.log(b);
+}
+</reactES6>
 
 <!--------><scss>
 .sxg-_test{ 

@@ -3,12 +3,6 @@ function toReact (_Vue,_jsData) {
 
 	var _React = [];
 
-	var _vals = [];
-	for (var key in _jsData) {
-		_vals.push('const '+key+' = '+JSON.stringify(_jsData[key])+';');
-	}
-	_React.push(_vals.join('\n'));
-
 	// 匹配v-text处理
 	var reg_vTxt = /(\s+v-text.+?\"(.+?)\")([\s\S]*?>)(<\/)/g;
 	_Vue = function() {
@@ -61,7 +55,6 @@ function toReact (_Vue,_jsData) {
 				return _Vue.replace(v_for[x],'{_'+for_items+'}');
 			}();
 
-
 			var _list = JSON.parse(JSON.stringify(v_for[x]));
 			var reg_vFor2 = /\sv-for[\s\S]*?\"[\s\S]*?\"/;
 			var match_vFor2 = _list.match(reg_vFor2)[0];
@@ -72,7 +65,6 @@ function toReact (_Vue,_jsData) {
 		}
 	}
 	_React.push('return '+ _Vue);
-	// console.log(_React.join('\n'));
 	return _React.join('\n');
 }
 
