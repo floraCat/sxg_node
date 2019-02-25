@@ -28,7 +28,7 @@ var formatCss  = require("./formatCss.js");
 var createToTpl = require("./createToTpl.js");
 
 
-var $name = '';
+
 var $path = '../../../tpl/src/_vue';
 const argv = process.argv;
 var _file = argv[2];
@@ -54,9 +54,6 @@ for (var i = 0; i < _file.length; i ++) {
 	var _url_out = '../../txts'+path2+'.txt';
 	var _url_in = $path + _file[i];
 	console.log('====='+ _file);
-	$name = _file.toString().split('/');
-	$name = $name[$name.length-1].split('.')[0];
-	console.log($name);
 	creatOne(_url_in,_url_out)
 }
 
@@ -98,8 +95,10 @@ function creatOne (_url_in,_url_out) {
 	var _objData = getData(_code);
 	/*生成 ES6Data*/
 	_rsObj.ES6Data = formatJs(_objData.ES6Data);
+	// var ES6Data2 = '<!--------><ES6Data>\n'+formatJs(_objData.ES6Data)+'\n</ES6Data>\n\n';
 	/*生成 jsData*/
 	_rsObj.jsData = formatJs(_objData.jsData);
+	// var jsData2 = '<!--------><jsData>\n'+formatJs(_objData.jsData)+'\n</jsData>\n\n';
 	/*生成 angularJsData*/
 	var angularJsData = formatJs(_objData.angularJsData);
 	/*生成 angularES6Data*/
@@ -112,13 +111,13 @@ function creatOne (_url_in,_url_out) {
 
 	var _objMethods = getMethods(_code);
 	/*生成 ES6Methods*/
-	_rsObj.ES6Methods = formatJs(_objMethods.ES6Methods);
+	var ES6Methods2 = '<!--------><ES6Methods>\n'+formatJs(_objMethods.ES6Methods)+'\n</ES6Methods>\n\n';
 	/*生成 jsMethods*/
-	_rsObj.jsMethods = formatJs(_objMethods.jsMethods);
+	var jsMethods2 = '<!--------><jsMethods>\n'+formatJs(_objMethods.jsMethods)+'\n</jsMethods>\n\n';
 	/*生成 ES6*/
-	_rsObj.ES6 = formatJs(_objMethods.ES6);
+	var ES6_2 = '<!--------><ES6>\n'+formatJs(_objMethods.ES6)+'\n</ES6>\n\n';
 	/*生成 原生js*/
-	_rsObj.js = formatJs(_objMethods.nativeJs);
+	var js2 = '<!--------><js>\n'+formatJs(_objMethods.nativeJs)+'\n</js>\n\n';
 	/*生成 angularJsMethods*/
 	var angularJsMethods = formatJs(_objMethods.angularJsMethods);
 	/*生成 angularES6Methods*/
@@ -129,9 +128,9 @@ function creatOne (_url_in,_url_out) {
 	var reactES6Methods = formatJs(_objMethods.reactES6Methods);
 
 	/*生成 angularJs*/
-	_rsObj.angularJs = angularJsData+'\n'+angularJsMethods;
+	var angularJs2 = '<!--------><angularJs>\n'+angularJsData+'\n'+angularJsMethods+'\n</angularJs>\n\n';
 	/*生成 angularES6*/
-	_rsObj.angularES6 = angularES6Data+'\n'+angularES6Methods;
+	var angularES6_2 = '<!--------><angularES6>\n'+angularES6Data+'\n'+angularES6Methods+'\n</angularES6>\n\n';
 
 
 	/*生成 mounted*/
@@ -141,39 +140,39 @@ function creatOne (_url_in,_url_out) {
 	if (match_mounted) {
 		mounted = formatJs(_code.match(reg_mounted)[1]);
 	}
-	_rsObj.mounted = mounted
+	var mounted2 = '<!--------><mounted>\n'+mounted+'\n</mounted>\n\n'
 
 
 	/*生成 import*/
 	var _objImport = getImport(_code);
-	_rsObj.jsImport = _objImport.js
-	_rsObj.vueImport = _objImport.vue
-	_rsObj.angularImport = _objImport.angular
-	_rsObj.reactImport = _objImport.react
+	var jsImport = '<!--------><jsImport>\n'+_objImport.js+'\n</jsImport>\n\n'
+	var vueImport = '<!--------><vueImport>\n'+_objImport.vue+'\n</vueImport>\n\n'
+	var angularImport = '<!--------><angularImport>\n'+_objImport.angular+'\n</angularImport>\n\n'
+	var reactImport = '<!--------><reactImport>\n'+_objImport.react+'\n</reactImport>\n\n'
 
 
 	var _jsData = JSON.parse('{'+_objData.jsData+'}');
 	var _objHtml = getHtml(_code,_jsData);
 	/*生成 vue*/
-	_rsObj.vue = _objHtml.vue;
+	var vue2 = '<!--------><vue>\n'+_objHtml.vue+'\n</vue>\n\n';
 	/*生成 html*/
-	_rsObj.html = formatHtml(_objHtml.html);
+	var html2 = '<!--------><html>\n'+formatHtml(_objHtml.html)+'\n</html>\n\n';
 	/*生成 angular*/
-	_rsObj.angular = _objHtml.angular;
+	var angular2 = '<!--------><angular>\n'+_objHtml.angular+'\n</angular>\n\n';
 	/*生成 reactJS*/
-	_rsObj.reactJs = reactJsData+'\n'+_objHtml.react+'\n'+reactJsMethods;
+	var reactJs2 = '<!--------><reactJs>\n'+reactJsData+'\n'+_objHtml.react+'\n'+reactJsMethods+'\n</reactJs>\n\n';
 	/*生成 reactES6*/
-	_rsObj.reactES6 = reactES6Data+'\n'+_objHtml.react+'\n'+reactES6Methods;
+	var reactES6_2 = '<!--------><reactES6>\n'+reactES6Data+'\n'+_objHtml.react+'\n'+reactES6Methods+'\n</reactES6>\n\n';
 	
 	/*生成 scss & less*/
 	var reg_scss = /<style.*>([\s\S]*?)<\/style>/;
 	var scss = _code.match(reg_scss)[1].trim();
-	_rsObj.scss = scss;
-	_rsObj.less = scss;
+	var scss2 = '<!--------><scss>\n'+scss+'\n</scss>\n\n';
+	var less2 = '<!--------><less>\n'+scss+'\n</less>\n\n';
 
 	/*生成 css*/
 	var css = toCss(scss);
-	_rsObj.css = formatCss(css).trim();
+	var css2 = '<!--------><css>\n'+formatCss(css).trim()+'\n</css>\n\n';
 
 	/*dataTool*/
 	var reg_tool = /<dataTool.*>([\s\S]*?)<\/dataTool>/;
@@ -183,7 +182,7 @@ function creatOne (_url_in,_url_out) {
 	} else {
 		dataTool = ''
 	}
-	_rsObj.dataTool = dataTool;
+	var dataTool2 = '<!--------><dataTool>\n'+dataTool+'\n</dataTool>\n\n';
 
 	/*dataMod*/
 	var reg_mod = /<dataMod.*>([\s\S]*?)<\/dataMod>/;
@@ -193,7 +192,7 @@ function creatOne (_url_in,_url_out) {
 	} else {
 		dataMod = ''
 	}
-	_rsObj.dataMod = dataMod;
+	var dataMod2 = '<!--------><dataMod>\n'+dataMod+'\n</dataMod>\n\n';
 
 	// return '---未完---'
 
@@ -236,23 +235,22 @@ function creatOne (_url_in,_url_out) {
 	for (let x = 0; x < _rsArr.length; x ++) {
 		_result += '<!--------><'+_rsArr[x]+'>\n'+_rsObj[_rsArr[x]]+'\n</'+_rsArr[x]+'>\n\n';
 	}
+	console.log(_result); return
 
-/******方便测试用*****/
-	// var _rsTpl = {};
-	// for (let x = 0; x < _rsArr.length; x ++) {
-	// 	_rsTpl[_rsArr[x]] = _rsObj[_rsArr[x]];
-	// }
-	// createToTpl(_rsTpl,$name);
-	// return
-/******\方便测试用*****/
 
+	var _rsTpl = {};
+	for (let x = 0; x < _rsArr.length; x ++) {
+		_rsTpl[_rsArr[x]] = _rsObj[_rsArr[x]];
+	}
+	createToTpl(_rsTpl);
+	return
 
 	fs.writeFile(_url_out,_result,function(err){
-		if (err) {
-		    console.log(err)
-		    return
-		}
-		console.log('生成 ok')
+	if (err) {
+	    console.log(err)
+	    return
+	}
+	console.log('生成 ok')
 	});
 }
 	

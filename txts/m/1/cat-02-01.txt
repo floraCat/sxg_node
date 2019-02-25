@@ -1,0 +1,769 @@
+<!--------><html>
+<div class="sxg-cat">
+	<div class="tabs" ref="catSwiper">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide" class="" onclick="switchTab(index)" v-for="(item, index) in object Object,[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
+			v-bind:key="index">
+				<a class="cat_btn">
+					<h3>
+						item.ttl
+					</h3>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="key" onclick="drop()">
+		下拉
+	</div>
+	<div class="drop" v-if="false">
+		<a class="{on: 0 === index}" onclick="switchTab(index)">
+			{{栏目1}}
+		</a>
+		<a class="{on: 0 === index}" onclick="switchTab(index)">
+			{{栏目2}}
+		</a>
+		<a class="{on: 0 === index}" onclick="switchTab(index)">
+			{{栏目3}}
+		</a>
+		<a class="{on: 0 === index}" onclick="switchTab(index)">
+			{{栏目4}}
+		</a>
+		<a class="{on: 0 === index}" onclick="switchTab(index)">
+			{{栏目5}}
+		</a>
+		<a class="{on: 0 === index}" onclick="switchTab(index)">
+			{{栏目6}}
+		</a>
+		<a class="{on: 0 === index}" onclick="switchTab(index)">
+			{{栏目7}}
+		</a>
+		<a class="{on: 0 === index}" onclick="switchTab(index)">
+			{{栏目8}}
+		</a>
+		<a class="{on: 0 === index}" onclick="switchTab(index)">
+			{{栏目9}}
+		</a>
+		<a class="{on: 0 === index}" onclick="switchTab(index)">
+			{{栏目10}}
+		</a>
+		<a class="{on: 0 === index}" onclick="switchTab(index)">
+			{{栏目11}}
+		</a>
+		<a class="{on: 0 === index}" onclick="switchTab(index)">
+			{{栏目12}}
+		</a>
+	</div>
+</div>
+</html>
+
+<!--------><vue>
+<div class="sxg-cat">
+        <div class="tabs" ref="catSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" :class="{on: indexOn === index}" @click="switchTab(index)" v-for="(item, index) in items" v-bind:key="index">
+                    <a class="cat_btn">
+                        <h3>{{item.ttl}}</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="key" @click="drop()">下拉</div>
+        <div class="drop" v-if="dropFlag">
+            <a v-for="(item,index) in items" :class="{on: indexOn === index}" v-bind:key="index" @click="switchTab(index)">{{item.ttl}}</a>
+        </div>
+    </div>
+</vue>
+
+<!--------><angular>
+<div class="sxg-cat">
+        <div class="tabs" ref="catSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" :class="{on: indexOn === index}" (click)="switchTab(index)"  *ngFor="let (item, ofdex) of items" v-bind:key="index">
+                    <a class="cat_btn">
+                        <h3>{{item.ttl}}</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="key" (click)="drop()">下拉</div>
+        <div class="drop" *ngIf="dropFlag">
+            <a  *ngFor="let (item,ofdex) of items" :class="{on: indexOn === index}" v-bind:key="index" (click)="switchTab(index)">{{item.ttl}}</a>
+        </div>
+    </div>
+</angular>
+
+<!--------><reactJs>
+var items = [{
+    ttl: '栏目1'
+},
+{
+    ttl: '栏目2'
+},
+{
+    ttl: '栏目3'
+},
+{
+    ttl: '栏目4'
+},
+{
+    ttl: '栏目5'
+},
+{
+    ttl: '栏目6'
+},
+{
+    ttl: '栏目7'
+},
+{
+    ttl: '栏目8'
+},
+{
+    ttl: '栏目9'
+},
+{
+    ttl: '栏目10'
+},
+{
+    ttl: '栏目11'
+},
+{
+    ttl: '栏目12'
+}];
+var indexOn = 0;
+var mySwiper = null;
+var dropFlag = false;
+const items.map(( =>
+<a :class="{on: indexOn === index}" v-bind:key="index" @click="switchTab(index)">{{item.ttl}}</a>
+return <div className="sxg-cat">
+        <div className="tabs" ref="catSwiper">
+            <div className="swiper-wrapper">
+                <div className="swiper-slide" :class="{on: indexOn === index}" @click="switchTab(index)" v-for="(item, index) in items" v-bind:key="index">
+                    <a className="cat_btn">
+                        <h3>{{item.ttl}}</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div className="key" @click="drop()">下拉</div>
+        <div className="drop" v-if="dropFlag">
+            {_items}
+        </div>
+    </div>
+action() {
+    var self = this;
+    self.$nextTick(function() {
+        /* eslint-disable */
+        this.mySwiper = new Swiper(self.$refs.catSwiper, {
+            slidesPerView: 5.5
+        });
+        /* eslint-enable */
+    });
+}
+switchTab(index) {
+    if (this.dropFlag) {
+        this.mySwiper.slideTo(index);
+    }
+    this.indexOn = index;
+    this.dropFlag = false;
+    this.handle(index);
+}
+handle(index) {
+    console.log('正在处理的tab序号为' + index);
+}
+drop() {
+    this.dropFlag = !this.dropFlag;
+}
+</reactJs>
+
+<!--------><reactES6>
+const items = [{
+    ttl: '栏目1'
+},
+{
+    ttl: '栏目2'
+},
+{
+    ttl: '栏目3'
+},
+{
+    ttl: '栏目4'
+},
+{
+    ttl: '栏目5'
+},
+{
+    ttl: '栏目6'
+},
+{
+    ttl: '栏目7'
+},
+{
+    ttl: '栏目8'
+},
+{
+    ttl: '栏目9'
+},
+{
+    ttl: '栏目10'
+},
+{
+    ttl: '栏目11'
+},
+{
+    ttl: '栏目12'
+}];
+const indexOn = 0;
+const mySwiper = null;
+const dropFlag = false;
+const items.map(( =>
+<a :class="{on: indexOn === index}" v-bind:key="index" @click="switchTab(index)">{{item.ttl}}</a>
+return <div className="sxg-cat">
+        <div className="tabs" ref="catSwiper">
+            <div className="swiper-wrapper">
+                <div className="swiper-slide" :class="{on: indexOn === index}" @click="switchTab(index)" v-for="(item, index) in items" v-bind:key="index">
+                    <a className="cat_btn">
+                        <h3>{{item.ttl}}</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div className="key" @click="drop()">下拉</div>
+        <div className="drop" v-if="dropFlag">
+            {_items}
+        </div>
+    </div>
+action: function() {
+    let self = this;
+    self.$nextTick(function() {
+        /* eslint-disable */
+        this.mySwiper = new Swiper(self.$refs.catSwiper, {
+            slidesPerView: 5.5
+        });
+        /* eslint-enable */
+    });
+},
+switchTab(index) {
+    if (this.dropFlag) {
+        this.mySwiper.slideTo(index);
+    }
+    this.indexOn = index;
+    this.dropFlag = false;
+    this.handle(index);
+},
+handle(index) {
+    console.log('正在处理的tab序号为' + index);
+},
+drop() {
+    this.dropFlag = !this.dropFlag;
+}
+</reactES6>
+
+<!--------><js>
+function action() {
+    var self = this;
+    self.$nextTick(function() {
+        /* eslint-disable */
+        this.mySwiper = new Swiper(self.$refs.catSwiper, {
+            slidesPerView: 5.5
+        });
+        /* eslint-enable */
+    });
+}
+function switchTab(index) {
+    if (this.dropFlag) {
+        this.mySwiper.slideTo(index);
+    }
+    this.indexOn = index;
+    this.dropFlag = false;
+    this.handle(index);
+}
+function handle(index) {
+    console.log('正在处理的tab序号为' + index);
+}
+function drop() {
+    this.dropFlag = !this.dropFlag;
+}
+</js>
+
+<!--------><ES6>
+action: function action() {
+    var self = this;
+    self.$nextTick(function() {
+        /* eslint-disable */
+        this.mySwiper = new Swiper(self.$refs.catSwiper, {
+            slidesPerView: 5.5
+        });
+        /* eslint-enable */
+    });
+}
+switchTab: function switchTab(index) {
+    if (this.dropFlag) {
+        this.mySwiper.slideTo(index);
+    }
+    this.indexOn = index;
+    this.dropFlag = false;
+    this.handle(index);
+}
+
+handle: function handle(index) {
+    console.log('正在处理的tab序号为' + index);
+}
+
+drop: function drop() {
+    this.dropFlag = !this.dropFlag;
+}
+</ES6>
+
+<!--------><jsData>
+items: [{
+    ttl: '栏目1'
+},
+{
+    ttl: '栏目2'
+},
+{
+    ttl: '栏目3'
+},
+{
+    ttl: '栏目4'
+},
+{
+    ttl: '栏目5'
+},
+{
+    ttl: '栏目6'
+},
+{
+    ttl: '栏目7'
+},
+{
+    ttl: '栏目8'
+},
+{
+    ttl: '栏目9'
+},
+{
+    ttl: '栏目10'
+},
+{
+    ttl: '栏目11'
+},
+{
+    ttl: '栏目12'
+}],
+indexOn: 0,
+mySwiper: null,
+dropFlag: false
+</jsData>
+
+<!--------><ES6Data>
+items: [{
+    ttl: '栏目1'
+},
+{
+    ttl: '栏目2'
+},
+{
+    ttl: '栏目3'
+},
+{
+    ttl: '栏目4'
+},
+{
+    ttl: '栏目5'
+},
+{
+    ttl: '栏目6'
+},
+{
+    ttl: '栏目7'
+},
+{
+    ttl: '栏目8'
+},
+{
+    ttl: '栏目9'
+},
+{
+    ttl: '栏目10'
+},
+{
+    ttl: '栏目11'
+},
+{
+    ttl: '栏目12'
+}],
+indexOn: 0,
+mySwiper: null,
+dropFlag: false
+</ES6Data>
+
+<!--------><jsMethods>
+action: function action() {
+    var self = this;
+    self.$nextTick(function() {
+        /* eslint-disable */
+        this.mySwiper = new Swiper(self.$refs.catSwiper, {
+            slidesPerView: 5.5
+        });
+        /* eslint-enable */
+    });
+}
+switchTab: function switchTab(index) {
+    if (this.dropFlag) {
+        this.mySwiper.slideTo(index);
+    }
+    this.indexOn = index;
+    this.dropFlag = false;
+    this.handle(index);
+}
+
+handle: function handle(index) {
+    console.log('正在处理的tab序号为' + index);
+}
+
+drop: function drop() {
+    this.dropFlag = !this.dropFlag;
+}
+</jsMethods>
+
+<!--------><ES6Methods>
+action: function() {
+    let self = this;
+    self.$nextTick(function() {
+        /* eslint-disable */
+        this.mySwiper = new Swiper(self.$refs.catSwiper, {
+            slidesPerView: 5.5
+        });
+        /* eslint-enable */
+    });
+},
+switchTab(index) {
+    if (this.dropFlag) {
+        this.mySwiper.slideTo(index);
+    }
+    this.indexOn = index;
+    this.dropFlag = false;
+    this.handle(index);
+},
+handle(index) {
+    console.log('正在处理的tab序号为' + index);
+},
+drop() {
+    this.dropFlag = !this.dropFlag;
+}
+</ES6Methods>
+
+<!--------><angularJs>
+items = [{
+    ttl: '栏目1'
+},
+{
+    ttl: '栏目2'
+},
+{
+    ttl: '栏目3'
+},
+{
+    ttl: '栏目4'
+},
+{
+    ttl: '栏目5'
+},
+{
+    ttl: '栏目6'
+},
+{
+    ttl: '栏目7'
+},
+{
+    ttl: '栏目8'
+},
+{
+    ttl: '栏目9'
+},
+{
+    ttl: '栏目10'
+},
+{
+    ttl: '栏目11'
+},
+{
+    ttl: '栏目12'
+}];
+indexOn = 0;
+mySwiper = null;
+dropFlag = false;
+action() : void {
+    var self = this;
+    self.$nextTick(function() : void {
+        /* eslint-disable */
+        this.mySwiper = new Swiper(self.$refs.catSwiper, {
+            slidesPerView: 5.5
+        });
+        /* eslint-enable */
+    });
+}
+switchTab(index) : void {
+    if (this.dropFlag) : void {
+        this.mySwiper.slideTo(index);
+    }
+    this.indexOn = index;
+    this.dropFlag = false;
+    this.handle(index);
+}
+handle(index) : void {
+    console.log('正在处理的tab序号为' + index);
+}
+drop() : void {
+    this.dropFlag = !this.dropFlag;
+}
+</angularJs>
+
+<!--------><angularES6>
+items = [{
+    ttl: '栏目1'
+},
+{
+    ttl: '栏目2'
+},
+{
+    ttl: '栏目3'
+},
+{
+    ttl: '栏目4'
+},
+{
+    ttl: '栏目5'
+},
+{
+    ttl: '栏目6'
+},
+{
+    ttl: '栏目7'
+},
+{
+    ttl: '栏目8'
+},
+{
+    ttl: '栏目9'
+},
+{
+    ttl: '栏目10'
+},
+{
+    ttl: '栏目11'
+},
+{
+    ttl: '栏目12'
+}];
+indexOn = 0;
+mySwiper = null;
+dropFlag = false;
+action: function() : void {
+    let self = this;
+    self.$nextTick(function() : void {
+        /* eslint-disable */
+        this.mySwiper = new Swiper(self.$refs.catSwiper, {
+            slidesPerView: 5.5
+        });
+        /* eslint-enable */
+    });
+},
+switchTab(index) : void {
+    if (this.dropFlag) : void {
+        this.mySwiper.slideTo(index);
+    }
+    this.indexOn = index;
+    this.dropFlag = false;
+    this.handle(index);
+},
+handle(index) : void {
+    console.log('正在处理的tab序号为' + index);
+},
+drop() : void {
+    this.dropFlag = !this.dropFlag;
+}
+</angularES6>
+
+<!--------><mounted>
+
+</mounted>
+
+<!--------><jsImport>
+<script src="swiper"></script>
+<link rel="stylesheet" href="swiper/dist/css/swiper.css" />
+</jsImport>
+
+<!--------><vueImport>
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.css';
+</vueImport>
+
+<!--------><angularImport>
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.css';
+</angularImport>
+
+<!--------><css>
+.sxg-cat {
+    position: relative;
+    height: .36rem;
+    line-height: .36rem;
+    text-align: center;
+    border-bottom: #eee .01rem solid; 
+}
+.sxg-cat .tabs {
+    width: 3.31rem;
+    height: .36rem;
+    overflow: hidden; 
+}
+.sxg-cat .swiper-slide {
+    border-right: #eee .01rem solid; 
+}
+.sxg-cat .swiper-slide.on {
+      border-bottom: red .02rem solid; 
+}
+.sxg-cat .key {
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: .44rem;
+    height: .35rem;
+    line-height: .35rem;
+    text-align: center;
+    background: #fff;
+    border-left: #eee .01rem solid;
+    cursor: pointer; 
+}
+.sxg-cat .drop {
+    overflow: hidden;
+    background: #eee; 
+}
+.sxg-cat .drop a {
+      float: left;
+      width: 20%;
+      border-right: #eee .01rem solid;
+      border-bottom: #eee .01rem solid; 
+}
+.sxg-cat .drop a.on {
+      color: red; 
+}
+</css>
+
+<!--------><less>
+.sxg-cat {
+    position: relative;
+    height: .36rem;
+    line-height: .36rem;
+    text-align: center;
+    border-bottom: #eee .01rem solid;
+    .tabs {
+        width: 3.31rem;
+        height: .36rem;
+        overflow: hidden;
+    }
+    .swiper-slide {
+        border-right: #eee .01rem solid;
+        &.on {
+            border-bottom: red .02rem solid;
+        }
+    }
+    .key {
+        z-index: 99;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: .44rem;
+        height: .35rem;
+        line-height: .35rem;
+        text-align: center;
+        background: #fff;
+        border-left: #eee .01rem solid;
+        cursor: pointer;
+    }
+    .drop {
+        overflow: hidden;
+        background: #eee;
+        a {
+            float: left;
+            width: 20%;
+            border-right: #eee .01rem solid;
+            border-bottom: #eee .01rem solid;
+        }
+        a.on {
+            color: red;
+        }
+    }
+}
+</less>
+
+<!--------><scss>
+.sxg-cat {
+    position: relative;
+    height: .36rem;
+    line-height: .36rem;
+    text-align: center;
+    border-bottom: #eee .01rem solid;
+    .tabs {
+        width: 3.31rem;
+        height: .36rem;
+        overflow: hidden;
+    }
+    .swiper-slide {
+        border-right: #eee .01rem solid;
+        &.on {
+            border-bottom: red .02rem solid;
+        }
+    }
+    .key {
+        z-index: 99;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: .44rem;
+        height: .35rem;
+        line-height: .35rem;
+        text-align: center;
+        background: #fff;
+        border-left: #eee .01rem solid;
+        cursor: pointer;
+    }
+    .drop {
+        overflow: hidden;
+        background: #eee;
+        a {
+            float: left;
+            width: 20%;
+            border-right: #eee .01rem solid;
+            border-bottom: #eee .01rem solid;
+        }
+        a.on {
+            color: red;
+        }
+    }
+}
+</scss>
+
+<!--------><reactImport>
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.css';
+</reactImport>
+
+<!--------><dataTool>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
+</dataTool>
+
+<!--------><dataMod>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
+</dataMod>
+

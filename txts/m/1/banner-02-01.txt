@@ -1,0 +1,301 @@
+<!--------><html>
+<div class="sxg-banner" ref="bannerSwiper">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide" v-for="(item, index) in [object Object],[object Object],[object Object]"
+		v-bind:key="index">
+			<a href="item.href" class="banner_btn">
+				<img src="item.src">
+			</a>
+		</div>
+	</div>
+</div>
+</html>
+
+<!--------><vue>
+<div class="sxg-banner" ref="bannerSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(item, index) in items" v-bind:key="index">
+                <a :href="item.href" class="banner_btn">
+                    <img :src="item.src">
+                </a>
+            </div>
+        </div>
+    </div>
+</vue>
+
+<!--------><angular>
+<div class="sxg-banner" ref="bannerSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"  *ngFor="let (item, ofdex) of items" v-bind:key="index">
+                <a href="{{item.href}}" class="banner_btn">
+                    <img href="{{item.href}}">
+                </a>
+            </div>
+        </div>
+    </div>
+</angular>
+
+<!--------><reactJs>
+var items = [{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+},
+{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+},
+{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+}];
+return <div className="sxg-banner" ref="bannerSwiper">
+        <div className="swiper-wrapper">
+            <div className="swiper-slide" v-for="(item, index) in items" v-bind:key="index">
+                <a href="{item.href}" className="banner_btn">
+                    <img href="{item.href}">
+                </a>
+            </div>
+        </div>
+    </div>
+action() {
+    var self = this;
+    self.$nextTick(function() {
+        /* eslint-disable */
+        new Swiper(self.$refs.bannerSwiper, {
+            slidesPerView: 1.5
+        });
+        /* eslint-enable */
+    });
+}
+</reactJs>
+
+<!--------><reactES6>
+const items = [{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+},
+{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+},
+{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+}];
+return <div className="sxg-banner" ref="bannerSwiper">
+        <div className="swiper-wrapper">
+            <div className="swiper-slide" v-for="(item, index) in items" v-bind:key="index">
+                <a href="{item.href}" className="banner_btn">
+                    <img href="{item.href}">
+                </a>
+            </div>
+        </div>
+    </div>
+action: function() {
+    let self = this;
+    self.$nextTick(function() {
+        /* eslint-disable */
+        new Swiper(self.$refs.bannerSwiper, {
+            slidesPerView: 1.5
+        });
+        /* eslint-enable */
+    });
+}
+</reactES6>
+
+<!--------><js>
+function action() {
+    var self = this;
+    self.$nextTick(function() {
+        /* eslint-disable */
+        new Swiper(self.$refs.bannerSwiper, {
+            slidesPerView: 1.5
+        });
+        /* eslint-enable */
+    });
+}
+</js>
+
+<!--------><ES6>
+action: function action() {
+    var self = this;
+    self.$nextTick(function() {
+        /* eslint-disable */
+        new Swiper(self.$refs.bannerSwiper, {
+            slidesPerView: 1.5
+        });
+        /* eslint-enable */
+    });
+}
+</ES6>
+
+<!--------><jsData>
+items: [{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+},
+{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+},
+{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+}]
+</jsData>
+
+<!--------><ES6Data>
+items: [{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+},
+{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+},
+{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+}]
+</ES6Data>
+
+<!--------><jsMethods>
+action: function action() {
+    var self = this;
+    self.$nextTick(function() {
+        /* eslint-disable */
+        new Swiper(self.$refs.bannerSwiper, {
+            slidesPerView: 1.5
+        });
+        /* eslint-enable */
+    });
+}
+</jsMethods>
+
+<!--------><ES6Methods>
+action: function() {
+    let self = this;
+    self.$nextTick(function() {
+        /* eslint-disable */
+        new Swiper(self.$refs.bannerSwiper, {
+            slidesPerView: 1.5
+        });
+        /* eslint-enable */
+    });
+}
+</ES6Methods>
+
+<!--------><angularJs>
+items = [{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+},
+{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+},
+{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+}];
+action() : void {
+    var self = this;
+    self.$nextTick(function() : void {
+        /* eslint-disable */
+        new Swiper(self.$refs.bannerSwiper, {
+            slidesPerView: 1.5
+        });
+        /* eslint-enable */
+    });
+}
+</angularJs>
+
+<!--------><angularES6>
+items = [{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+},
+{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+},
+{
+    href: '#',
+    src: 'http://localhost:8000/images/11.jpg'
+}];
+action: function() : void {
+    let self = this;
+    self.$nextTick(function() : void {
+        /* eslint-disable */
+        new Swiper(self.$refs.bannerSwiper, {
+            slidesPerView: 1.5
+        });
+        /* eslint-enable */
+    });
+}
+</angularES6>
+
+<!--------><mounted>
+
+</mounted>
+
+<!--------><jsImport>
+<script src="swiper"></script>
+<link rel="stylesheet" href="swiper/dist/css/swiper.css" />
+</jsImport>
+
+<!--------><vueImport>
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.css';
+</vueImport>
+
+<!--------><angularImport>
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.css';
+</angularImport>
+
+<!--------><css>
+.sxg-banner {
+    position: relative;
+    height: 2rem;
+    overflow: hidden; 
+}
+</css>
+
+<!--------><less>
+.sxg-banner {
+    position: relative;
+    height: 2rem;
+    overflow: hidden;
+}
+</less>
+
+<!--------><scss>
+.sxg-banner {
+    position: relative;
+    height: 2rem;
+    overflow: hidden;
+}
+</scss>
+
+<!--------><reactImport>
+import Swiper from 'swiper';
+import 'swiper/dist/css/swiper.css';
+</reactImport>
+
+<!--------><dataTool>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
+</dataTool>
+
+<!--------><dataMod>
+[
+    {"label":"左边宽","tpl":"toolTop","TorB":"50px","left":"120px","lineHeight":"10px"},
+    {"label":"右边宽","tpl":"toolBtm","TorB":"50px","left":"210px","lineHeight":"10px"},
+    {"label":"整体高","tpl":"toolRt","TorB":"","left":"310px","lineHeight":"10px"}
+]
+</dataMod>
+

@@ -110,7 +110,7 @@ app.get("/getData",function (req,res) {
     res.header("Access-Control-Allow-Methods","DELETE,PUT,POST,GET,OPTIONS");
 
     // 遍历$path所有txt文件
-    var $path = './templates';
+    var $path = './txts';
     var _rs = [];
     function listTxt(path) {
         var list = function(_path) {
@@ -148,7 +148,8 @@ app.get("/getHtml",function (req,res) {
     res.header("Access-Control-Allow-Methods","DELETE,PUT,POST,GET,OPTIONS");
 
     var _name = req.query.name;
-    var _code = fs.readFileSync(_name,'utf8');
+    // console.log(_name);return
+    var _code = fs.readFileSync('./txts/'+_name+'.txt','utf8');
 
 var temp = _name.split('/');
 if (temp[temp.length-1].indexOf('-')>=0) {

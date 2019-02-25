@@ -1,0 +1,433 @@
+<!--------><html>
+<div class="sxg-layout">
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div class="info">
+			<span class="bg">
+			</span>
+			<h4>
+				标题标题
+			</h4>
+			<p>
+				简短描述简短描述
+			</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div class="info">
+			<span class="bg">
+			</span>
+			<h4>
+				标题标题
+			</h4>
+			<p>
+				简短描述简短描述简短描述简短描述
+			</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div class="info">
+			<span class="bg">
+			</span>
+			<h4>
+				标题标题
+			</h4>
+			<p>
+				简短描述简短描述简短描述简短描述
+			</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div class="info">
+			<span class="bg">
+			</span>
+			<h4>
+				标题标题
+			</h4>
+			<p>
+				简短描述简短描述简短描述简短描述
+			</p>
+		</div>
+	</li>
+</div>
+</html>
+
+<!--------><vue>
+<div class="sxg-layout">
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div class="info">
+			<span class="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div class="info">
+			<span class="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述简短描述简短描述</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div class="info">
+			<span class="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述简短描述简短描述</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div class="info">
+			<span class="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述简短描述简短描述</p>
+		</div>
+	</li>
+</div>
+</vue>
+
+<!--------><angular>
+<div class="sxg-layout">
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div class="info">
+			<span class="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div class="info">
+			<span class="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述简短描述简短描述</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div class="info">
+			<span class="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述简短描述简短描述</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div class="info">
+			<span class="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述简短描述简短描述</p>
+		</div>
+	</li>
+</div>
+</angular>
+
+<!--------><reactJs>
+
+return <div className="sxg-layout">
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div className="info">
+			<span className="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div className="info">
+			<span className="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述简短描述简短描述</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div className="info">
+			<span className="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述简短描述简短描述</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div className="info">
+			<span className="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述简短描述简短描述</p>
+		</div>
+	</li>
+</div>
+
+</reactJs>
+
+<!--------><reactES6>
+
+return <div className="sxg-layout">
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div className="info">
+			<span className="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div className="info">
+			<span className="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述简短描述简短描述</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div className="info">
+			<span className="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述简短描述简短描述</p>
+		</div>
+	</li>
+	<li>
+		<img src="http://localhost:8000/images/11.jpg" />
+		<div className="info">
+			<span className="bg"></span>
+			<h4>标题标题</h4>
+			<p>简短描述简短描述简短描述简短描述</p>
+		</div>
+	</li>
+</div>
+
+</reactES6>
+
+<!--------><js>
+
+</js>
+
+<!--------><ES6>
+
+</ES6>
+
+<!--------><jsData>
+
+</jsData>
+
+<!--------><ES6Data>
+
+</ES6Data>
+
+<!--------><jsMethods>
+
+</jsMethods>
+
+<!--------><ES6Methods>
+
+</ES6Methods>
+
+<!--------><angularJs>
+
+
+</angularJs>
+
+<!--------><angularES6>
+
+
+</angularES6>
+
+<!--------><mounted>
+
+</mounted>
+
+<!--------><jsImport>
+
+</jsImport>
+
+<!--------><vueImport>
+
+</vueImport>
+
+<!--------><angularImport>
+
+</angularImport>
+
+<!--------><css>
+.sxg-layout {
+    overflow: hidden;
+    padding: .1rem .1rem; 
+}
+.sxg-layout li {
+    position: relative;
+    float: left;
+    width: 30.3%;
+    height: 1rem;
+    margin: 0 3% .1rem 0; 
+}
+.sxg-layout li img {
+      width: 100%;
+      height: 100%; 
+}
+.sxg-layout li .info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: .5rem;
+      padding: .05rem;
+      color: #ccc;
+      overflow: hidden; 
+}
+.sxg-layout li .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      opacity: .3; 
+}
+.sxg-layout li h4 {
+      position: relative;
+      z-index: 9;
+      height: .24rem;
+      line-height: .24rem;
+      font-size: .14rem;
+      color: #fff; 
+}
+.sxg-layout li p {
+      position: relative;
+      z-index: 9;
+      height: .16rem;
+      line-height: .16rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; 
+}
+</css>
+
+<!--------><less>
+.sxg-layout {
+    overflow: hidden;
+    padding: .1rem .1rem;
+    li {
+    	position: relative;
+    	float: left;
+    	width: 30.3%;
+    	height: 1rem;
+    	margin: 0 3% .1rem 0;
+    	img {
+    		width: 100%;
+    		height: 100%;
+    	}
+    	.info {
+    		position: absolute;
+    		bottom: 0;
+    		left: 0;
+    		width: 100%;
+    		height: .5rem;
+    		padding: .05rem;
+    		color: #ccc;
+    		overflow:hidden;
+    	}
+    	.bg {
+    		position: absolute;
+    		top: 0;
+    		left: 0;
+    		width: 100%;
+    		height: 100%;
+    		background: #000;
+    		opacity: .3;
+    	}
+    	h4 {
+    		position: relative;
+    		z-index: 9;
+    		height: .24rem;
+    		line-height: .24rem;
+    		font-size: .14rem;
+    		color: #fff;
+    	}
+    	p {
+    		position: relative;
+    		z-index: 9;
+    		height: .16rem;
+    		line-height: .16rem;
+    		white-space:nowrap; 
+    		overflow:hidden;
+			text-overflow:ellipsis; 
+    	}
+    }
+}
+</less>
+
+<!--------><scss>
+.sxg-layout {
+    overflow: hidden;
+    padding: .1rem .1rem;
+    li {
+    	position: relative;
+    	float: left;
+    	width: 30.3%;
+    	height: 1rem;
+    	margin: 0 3% .1rem 0;
+    	img {
+    		width: 100%;
+    		height: 100%;
+    	}
+    	.info {
+    		position: absolute;
+    		bottom: 0;
+    		left: 0;
+    		width: 100%;
+    		height: .5rem;
+    		padding: .05rem;
+    		color: #ccc;
+    		overflow:hidden;
+    	}
+    	.bg {
+    		position: absolute;
+    		top: 0;
+    		left: 0;
+    		width: 100%;
+    		height: 100%;
+    		background: #000;
+    		opacity: .3;
+    	}
+    	h4 {
+    		position: relative;
+    		z-index: 9;
+    		height: .24rem;
+    		line-height: .24rem;
+    		font-size: .14rem;
+    		color: #fff;
+    	}
+    	p {
+    		position: relative;
+    		z-index: 9;
+    		height: .16rem;
+    		line-height: .16rem;
+    		white-space:nowrap; 
+    		overflow:hidden;
+			text-overflow:ellipsis; 
+    	}
+    }
+}
+</scss>
+
+<!--------><reactImport>
+
+</reactImport>
+
+<!--------><dataTool>
+
+</dataTool>
+
+<!--------><dataMod>
+
+</dataMod>
+
