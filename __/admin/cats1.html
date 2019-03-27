@@ -28,6 +28,10 @@
 			<label>attr：</label>
 			<input type="text" v-model="attr" />
 		</li>
+		<li>
+			<label>sort：</label>
+			<input type="text" v-model="sort" />
+		</li>
 	</ul>
 	<a href="javascript:;" @click="add">提交</a>
 </div>
@@ -39,18 +43,13 @@ new Vue({
 		return {
 			ttl: '',
 			type: 'm',
-			attr: 1
+			attr: 1,
+			sort: 0
 		}
 	},
 	methods: {
 		add: function () {
-			var url = 'http://localhost:8000/add?db=cats1&ttl='+this.ttl+'&type='+this.type+'&attr='+this.attr;
-			var submitdata = {
-				db: 'cats1',
-				ttl: this.ttl,
-				type: this.type,
-				attr: this.attr
-			}
+			var url = 'http://localhost:8000/add?db=cats1&ttl='+this.ttl+'&en='+this.ttl+'&sort='+this.sort+'&type='+this.type+'&attr='+this.attr;
 			axios.get(url).then(function(res){
 			    console.log(res);
 			}).catch(function(err){

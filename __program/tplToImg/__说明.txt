@@ -15,3 +15,6 @@ http://localhost:8000/__program/tplToImg/_htmlToImg.html
 - getData用于不传参时获取所有txt文件
 
 - getHtml用于构建自动下载模板图片的html，返回前端后逐一新开窗口自动下载图片
+
+-----------------------------------------------
+如：http://localhost:8000/__program/tplToImg/_htmlToImg.html?file=m/1/cat-02-01,m/1/list-02-01

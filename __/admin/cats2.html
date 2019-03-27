@@ -24,6 +24,10 @@
 			<label>cat1-name：</label>
 			<input type="text" v-model="cat1" />
 		</li>
+		<li>
+			<label>sort：</label>
+			<input type="text" v-model="sort" />
+		</li>
 	</ul>
 	<a href="javascript:;" @click="add">提交</a>
 </div>
@@ -34,12 +38,14 @@ new Vue({
 	data: function () {
 		return {
 			ttl: '',
-			cat1: ''
+			cat1: '',
+			sort: 0
 		}
 	},
 	methods: {
 		add: function () {
-			var url = 'http://localhost:8000/add?db=cats2&ttl='+this.ttl+'&cat1='+this.cat1;
+			var url = 'http://localhost:8000/add?db=cats2&ttl='+this.ttl+'&en='+this.ttl+'&sort='+this.sort+'&cat1='+this.cat1;
+			// console.log(url);return
 			axios.get(url).then(function(res){
 			    console.log(res);
 			}).catch(function(err){
